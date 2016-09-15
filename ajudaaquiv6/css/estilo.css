@@ -243,7 +243,6 @@ div.jumbotron>h1{
 }
 
 .navbar-default .navbar-nav>.active>a{
-  border-radius: 12px;
   padding: 13px 30px;
 }
 .navbar-nav{
@@ -322,6 +321,7 @@ i{
   background-color: rgba(255,255,255,0);
   border: 1px solid #fff;
   color: #fff;
+  transition: background 20ms ease-in;
 }
 .btn-branco:active {
   background-color: rgba(255,255,255,0.25);
@@ -357,8 +357,15 @@ i{
 span.form-control-feedback{
   right: 15px;
 }
+.navbar-toggle{
+  border: 0px;
+}
+.navbar-toggle:hover :focus{
+  border: 0px;
+  background-color: rgba(0,0,0,0) !important;
+}
 
-@media (min-width: 992px){
+@media (min-width: 768px){
   #navbar-principal{
     position: absolute;
     right: 0px;
