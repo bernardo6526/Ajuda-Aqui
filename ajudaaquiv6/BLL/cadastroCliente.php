@@ -19,15 +19,15 @@ foreach ($_POST as $key => $value) {
 ECHO $_POST['nascimento'];
 
 $nome = $_POST['nome'];
-$sobrenome = $_POST['sobrenome']
-$email $_POST['email'];
+$sobrenome = $_POST['sobrenome'];
+$email = $_POST['email'];
 $nascimento = str_replace($tratamento, "", $_POST['nascimento']);
 $cpf = str_replace($tratamento, "", $_POST['cpf']);
 $rg = str_replace($tratamento, "", $_POST['rg']);
 $telefone = str_replace($tratamento, "", $_POST['telefone']);
 $cep = str_replace($tratamento, "", $_POST['cep']);
 $numero = $_POST['numero'];
-$complemento =  $_POST['complemento'];
+$complemento = isset($_POST['complemento']) ? $_POST['complemento'] : "" ;
 $tipo = $_POST['tipo'];
 $login = $_POST['login'];
 $senha = $_POST['senha'];

@@ -11,7 +11,7 @@ if ($bd->conexaobd) {
 		$login = $_POST['login'];
 		$senha = $_POST['senha'];
 
-		$sql = mysqli_query($bd->conexaobd, "SELECT id,login, apelido, tipo, fk FROM usuario WHERE login = '$login' AND senha = '$senha'");
+		$sql = mysqli_query($bd->conexaobd, "SELECT id,login, tipo, fk FROM usuario WHERE login = '$login' AND senha = '$senha'");
 
 		if (mysqli_num_rows($sql) == 1) {
 

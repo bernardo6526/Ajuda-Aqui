@@ -441,3 +441,11 @@ body#cadastro{
 #error{
   color: red;
 }
+label.error{
+  color: #1985a1;
+  display: inline;
+  position: absolute;
+  right:20px;
+  top: 20px;
+  font-size: 9px;
+}
