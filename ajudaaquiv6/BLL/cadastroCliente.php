@@ -18,18 +18,19 @@ foreach ($_POST as $key => $value) {
 
 ECHO $_POST['nascimento'];
 
-$nome = str_replace($tratamento, "", $_POST['nome']);
-$email = str_replace($tratamento, "", $_POST['email']);
+$nome = $_POST['nome'];
+$sobrenome = $_POST['sobrenome']
+$email $_POST['email'];
 $nascimento = str_replace($tratamento, "", $_POST['nascimento']);
 $cpf = str_replace($tratamento, "", $_POST['cpf']);
 $rg = str_replace($tratamento, "", $_POST['rg']);
 $telefone = str_replace($tratamento, "", $_POST['telefone']);
 $cep = str_replace($tratamento, "", $_POST['cep']);
-$numero = str_replace($tratamento, "", $_POST['numero']);
-$complemento = str_replace($tratamento, "", $_POST['complemento']);
-$tipo = str_replace($tratamento, "", $_POST['tipo']);
-$login = str_replace($tratamento, "", $_POST['login']);
-$senha = str_replace($tratamento, "", $_POST['senha']);
+$numero = $_POST['numero'];
+$complemento =  $_POST['complemento'];
+$tipo = $_POST['tipo'];
+$login = $_POST['login'];
+$senha = $_POST['senha'];
 
 $endereco = busca_cep($cep);
 $bd = new banco("ajudaaqui");
