@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ajuda Aqui! - Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body data-spy="scroll" data-target="#navbar-principal">
+	<nav data-spy="" data-offset-top="220" id="navbar-principal" class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+      	<img src="img/logo.png" alt="logo" height="30px">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#teste">Quem Somos</a></li>
+        <li><a href="#">Junte-se a Nós</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" class="cor" role="button" data-toggle="modal" data-target="#login-modal"><span class="glyphicon cor glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- INICIO LOGIN MODAL -->
+
+               <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" align="center">
+					<img class="img-responsive" id="img_logo" src="img/logo.png">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					</button>
+				</div>
+                
+                <!-- Begin # DIV Form -->
+                <div id="div-forms">
+                
+                    <!-- Begin # Login Form -->
+                    <form id="login-form" action="BLL/login.php" method="post">
+		                <div class="modal-body">
+				    		<div id="div-login-msg">
+                                <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                <span id="text-login-msg">Digite seu Usuário e Senha</span>
+                            </div>
+				    		<input id="login_username" class="form-control" name="login" type="text" placeholder="Usuário" required>
+				    		<input id="login_password" class="form-control" name="senha" type="password" placeholder="Senha" required>
+				    		
+                            <div class="checkbox text-right">                            	
+                                    	<button id="login_lost_btn" type="button" class="btn hidden btn-link">Esqueceu sua senha?</button>
+                            </div>
+        		    	</div>
+				        <div class="modal-footer">
+                            <div>
+                                <input type="submit" name="btnSubmit" class="btn btn-primary btn-lg btn-block">
+                            </div>
+				    	    <div>
+                                
+                                <button id="login_register_btn" type="button" class="btn btn-link">Cadastrar-se</button>
+                            </div>
+				        </div>
+                    </form>
+                    <!-- End # Login Form -->
+                    
+                    <!-- Begin | Lost Password Form -->
+                    <form id="lost-form" style="display:none;">
+    	    		    <div class="modal-body">
+		    				<div id="div-lost-msg">
+                                <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                <span id="text-lost-msg">Enviaremos um e-mail com seus dados</span>
+                            </div>
+		    				<input id="lost_email" class="form-control" type="text" placeholder="Digite seu email cadastrado" required>
+            			</div>
+		    		    <div class="modal-footer">
+                            <div>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
+                            </div>
+                            <div>
+                                <button id="lost_login_btn" type="button" class="btn btn-link">Login</button>
+                            </div>
+		    		    </div>
+                    </form>
+                    <!-- End | Lost Password Form -->
+                    
+                </div>
+                <!-- End # DIV Form -->
+                
+			</div>
+		</div>
+	</div>
+
+<!-- FIM LOGIN MODAL -->
+
+<div class="container-fluid">
+	<div class="row">
+		<div id="home" class="jumbotron text-center">
+		  <h1 class="branco">Procurando por Ajuda?</h1>
+		  <p><a class="btn btn-primary btn-lg" href="cadastroCliente.html" role="button">Cadastre-se</a></p>
+		</div>
+	</div>
+	<div class="row text-center chapa">
+		<span>
+				<h2 class="branco">
+					Trabalhe Conosco
+				</h2>
+			</span>	
+		<button type="button" class="btn btn-branco btn-lg">Junte-se A Nós</button>
+	</div>
+</div>
+<div class="container">
+  <div class="row text-center">
+    <h1 class="cor">Nois ajuda dms krl</h1>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+    dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+    Aliquam in felis sit amet augue.
+    <br>
+  </div>
+  <hr>
+  <div id="teste" class="row">
+	  <span class="text-center">
+	  	<h2 class="cor">
+	  		Como Funciona
+	  	</h2>
+	  	<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	  	tempor incididunt ut labore et dolore</p>
+	  </span>
+	  <div class="col-xs-12 col-sm-4 text-center center-block">
+	  	<h2>
+	  		Conteudo 1
+	  	</h2>
+	  	<p>
+	  		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo
+	  	</p>
+	  	<img src="img/dummy.jpg" alt="" class="img-thumbnail">
+	  	<p class="lead">
+	  		Lorem ipsum dolor sit amet, consectetur adipisicing 
+	  	</p>
+	  </div>
+	  <div class="col-xs-12 col-sm-4 text-center">
+	  	<h2>
+	  		Conteudo 2
+	  	</h2>
+	  	<p>
+	  		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo
+	  	</p>
+	  	<img src="img/dummy.jpg" alt="" class="img-thumbnail">
+	  	<p class="lead">
+	  		Lorem ipsum dolor sit amet, consectetur adipisicing 
+	  	</p>
+	  </div>
+	  <div class="col-xs-12 col-sm-4 text-center">
+	  	<h2>
+	  		Conteudo 3
+	  	</h2>
+	  	<p>
+	  		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo
+	  	</p>
+	  	<img src="img/dummy.jpg" alt="" class="img-thumbnail">
+	  	<p class="lead">
+	  		Lorem ipsum dolor sit amet, consectetur adipisicing 
+	  	</p>
+	  </div>
+  </div>
+  <div class="row">
+		<h2 class="cor text-center">
+			Lorem Ipson Dollor Sit Amet
+		</h2>
+		<hr>
+		<div class="col-sm-4 col-xs-12">
+			<img src="img/dummy200.jpg" alt="" class="img-responsive center-block">
+		</div>
+		<div class="col-sm-8 col-xs-12 text-left-lg">
+			<p class="lead text-center-xs text-center-md">Lorem ipsum dolor sit </p>
+			<p class="text-center-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+			<u><a href="#">Lorem ipsum >></a></u>
+		</div>
+  </div>
+  <hr>
+  <div class="row">
+  	<div class="col-sm-4 col-xs-12">
+			<img src="img/dummy200.jpg" alt="" class="img-responsive center-block">
+		</div>
+		<div class="col-sm-8 col-xs-12 text-left-lg">
+			<p class="lead text-center-xs text-center-md">Lorem ipsum dolor sit </p>
+			<p class="text-center-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+			<u><a href="#">Lorem ipsum >></a></u>
+		</div>
+  </div>
+  <hr>
+  <div class="row">
+  	<div class="col-sm-4 col-xs-12">
+			<img src="img/dummy200.jpg" alt="" class="img-responsive center-block">
+		</div>
+		<div class="col-sm-8 col-xs-12 text-left-lg">
+			<p class="lead text-center-not-lg">Lorem ipsum dolor sit </p>
+			<p class="text-center-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+			<u><a href="#">Lorem ipsum >></a></u>
+		</div>
+  </div>
+  <hr>
+</div>
+<div class="footer container-fluid">
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4">
+			<img src="img/logo.png" height="40px" class="" id="logo-bottom" alt="">
+			<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+    Quisque mauris augue, molestie tincidunt condimentum vitae, gravida</p>
+		</div>
+		<div class="col-sm-3 col-sm-offset-5 text-center">
+			<a type="button" class="btn btn-lg btn-primary btn-inverse" href="cadastroCliente.html">Cadastre-se Agora</a>
+			<div class="row btn-lg">
+				<a href="#"><i class="fa cor fa-facebook-square fa-2x social"></i></a>
+	      <a href="#"><i class="fa cor fa-twitter-square fa-2x social"></i></a>
+	      <a href="#"><i class="fa cor fa-youtube-square fa-2x social"></i></a>
+	      <a href="#"><i class="fa cor fa-envelope-square fa-2x social"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<hr>
+		<small>Ajuda Aqui &reg - PCC Cotemig </small>
+
+		<span id="creditos" class="text-right"><small><a href="creditos">- Créditos -</a></small></span>
+	</div>
+</div>
+</div>
+
+<!-- SCRIPTS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+  </script>
+<!-- /SCRIPTS -->
+</body>
+</html>
