@@ -451,7 +451,7 @@ body#cadastro{
 label.error{
   color: #1985a1;
   display: inline;
-  position: absolute;
+  position: initial;
   right:20px;
   top: 20px;
   font-size: 9px;
