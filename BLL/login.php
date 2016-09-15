@@ -16,14 +16,31 @@ if ($bd->conexaobd) {
 		if (mysqli_num_rows($sql) == 1) {
 
 			$obj = mysqli_fetch_object($sql);
-			session_start();
 
-			
+			$id = $obj->fk;
+			$tabela = $obj->tipo;
+
+			switch ($tabela) {
+				case '1':
+					$tabela = 'clinica';
+					break;
+				case '2':
+					$tabela = 'assistente';
+					break;
+				case '3':
+					$tabela = 'cliente';
+				break;
+			}
+
+			$sql = "SELECT nome FROM $tabela WHERE id = $id";
+			$result = mysqli_fetch_assoc(mysqli_query($bd->conexaobd, $sql));
+
+			$obj->login = $result['nome'];
+
+			session_start();
 			$_SESSION['user'] = $obj;
 			
-			
  			echo json_encode($obj);
-			
 
 		} 
 		else {

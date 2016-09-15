@@ -28,7 +28,7 @@
 		
 		if (isset($_SESSION['user']))
 		{
-			ECHO $_SESSION['user']->tipo." ".$_SESSION['user']->apelido." logada"; 
+			ECHO $_SESSION['user']->login." logada"; 
 		}
 		
 		else {ECHO "ERROW";}
