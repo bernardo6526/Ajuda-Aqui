@@ -72,7 +72,11 @@
 						<input id="telefone" type="text" class="form-control" name="telefone" placeholder="Telefone">
 					</div>
 					<div class="form-group col-xs-12">
-						<input id="complemento" type="text" class="form-control" name="tipo" placeholder="Tipo de Deficiência">
+						<select name="tipo" id="tipo">
+							<option value="nao">Não Possuo Nenhuma Deficiência</option>
+							<option value="fisico">Tenho Deficiência Física</option>
+							<option value="mental">Tenho Deficiência Mental</option> <!-- kkkk -->
+						</select>
 					</div>
 						<label for="termos" class="text-left col-xs-12">
 							<input type="checkbox" id="termos"> Aceito os <a class="cor" href="#">Termos de uso</a>
