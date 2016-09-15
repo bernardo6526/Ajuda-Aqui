@@ -38,7 +38,7 @@ $bd = new banco("ajudaaqui");
 try{
 	if ($bd->conexaobd) {
 
-		$sql = "INSERT INTO cliente VALUES(NULL, '$nome', '$cpf', '$email', '$nascimento',";
+		$sql = "INSERT INTO cliente VALUES(NULL, '$nome $sobrenome', '$cpf', '$email', '$nascimento',";
 		$sql .= " '$rg', '$telefone','$tipo','$endereco->cidade', '$endereco->bairro', '$endereco->logradouro',";
 		$sql .= " '$complemento', '$numero', '$endereco->estado',$cep)";
 
