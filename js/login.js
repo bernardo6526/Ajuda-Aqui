@@ -35,7 +35,6 @@ $(function() {
 				cache: true,
 				dataType: 'json',
 				success: function(data) {
-					login = data['apelido'];
 					tipo = data['tipo'];
 
 					$("#text-login-msg").text("Bem Vindo " + login).css('color', 'green');
