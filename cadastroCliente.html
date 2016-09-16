@@ -157,7 +157,7 @@
 					method: $(form).attr('method'),
 					data: $('form .form-group :input').serializeArray(),
 					success: function () {
-						alert($("input[name='nome']").val() + ' Cadastrado Com Sucesso');
+						alert('Bem Vindo ' + $("input[name='nome']").val() + "!");
 						window.location.replace('index.html');
 					},
 					error: function() {
