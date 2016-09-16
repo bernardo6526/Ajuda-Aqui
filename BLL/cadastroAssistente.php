@@ -52,7 +52,7 @@ try{
 		if (mysqli_query($bd->conexaobd, $sql)) 
 		{
 			$fk = mysqli_insert_id($bd->conexaobd);  //Pegando id do insert pra salvar na tabela usuário
-			$sql = "INSERT INTO usuario VALUES (NULL,'$login','$senha',3,$fk)";
+			$sql = "INSERT INTO usuario VALUES (NULL,'$login','$senha',2,$fk)";
 			mysqli_query($bd->conexaobd, $sql);
 			var_dump($sql);
 			
