@@ -23,40 +23,25 @@
 </nav>
 <div class="container-fluid background-image">
 	<div class="row">
-		<div id="alguem-le-isso" class="col-xs-offset-8 col-xs-4">
-			<h2 class="text-shadow"><b>Tipo de Cadastro</b></h2>
-
-			</div>
+		<div id="alguem-le-isso" class="col-lg-offset-8 col-lg-3 col-sm-offset-2 col-sm-8">
+			<h2 class="text-shadow text-center"><b>Tipo de Cadastro</b></h2>
+			<span class="col-xs-12 text-center">
+				<a href="cadastroCliente.html" class="btn btn-lg btn-default" style="width:90%; margin-top:60px">Cliente</a>
+			</span>
+			<span class="col-xs-12 text-center">
+				<a href="cadastroAssistente.html" class="btn btn-lg btn-default" style="width:90%; margin-top:60px">Assistente</a>
+			</span>
+			<span class="col-xs-12 text-center">
+				<a href="cadastroClinica.html" class="btn btn-lg btn-default" style="width:90%; margin-top:60px">Gerente</a>
+			</span>
 		</div>
-		</div>
+	</div>
 </div>
 
 
 <!-- SCRIPTS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="js/jquery.mask.js"></script>
-	<script src="js/cadastro.js"></script>
-	<script>
-		$("#cep").mask("99999-999");
-		$("#rg").mask("99.999.999-9");
-
-		var options =  {onKeyPress: function(telefone, e, field, options) {
-			var masks = ['(00) 0 0000-0000', '(00) 0000-00000'];
-			mask = (telefone.length>14) ? masks[0] : masks[1];
-
-			$('#telefone').mask(mask, options);
-		}
-	};
-		$("#telefone").mask("(00)0000-00000", options);
-
-		var formulario = $("#cadastroCliente");
-
-		$('#login').on("keyup", function() {
-			requestAjax(formulario);
-		});
-	</script>
-
 <!-- /SCRIPTS -->
 </body>
 </html>
