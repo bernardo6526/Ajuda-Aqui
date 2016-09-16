@@ -31,10 +31,10 @@ $complemento = isset($_POST['complemento']) ? $_POST['complemento'] : "" ;
 $tipo = $_POST['tipo'];
 $login = $_POST['login'];
 $senha = $_POST['senha'];
-$certificado = $POST['certificado'];
-$tipo = $POST['tipo'];
-$clinicaid = $POST['clinicaid'];
-$nota = $POST['nota'];
+$nmroprof = $_POST['nmroprof'];
+$tipo = $_POST['tipo'];
+
+
 
 $endereco = busca_cep($cep);
 $bd = new banco("ajudaaqui");
@@ -44,7 +44,7 @@ try{
 
 		$sql = "INSERT INTO assistente VALUES(NULL, '$nome $sobrenome', '$cpf', '$email', '$nascimento',";
 		$sql .= " '$rg', '$telefone','$endereco->cidade', '$endereco->bairro', '$endereco->logradouro',";
-		$sql .= " '$complemento', '$numero', '$endereco->estado',$cep,$certificado,'$tipo',null,$nota)";
+		$sql .= " '$complemento', '$numero', '$endereco->estado',$cep,$nmroprof,'$tipo',1,null)";
 
 		var_dump($sql);
 		

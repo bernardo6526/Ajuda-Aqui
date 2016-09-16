@@ -50,6 +50,10 @@
 					</div>
 
 					<div class="form-group col-xs-6">
+						<input placeholder="Nascimento" class="form-control" name="nascimento" type="text" onfocus="(this.type='date')">
+					</div>
+					
+					<div class="form-group col-xs-6">
 						<input placeholder="CPF" id="cpf" class="form-control" name="cpf" type="text" >
 					</div>
 					
@@ -146,6 +150,7 @@
 					required: true,
 					email: true
 				},
+				nascimento: "required",
 				cpf: "required",
 				rg: "required",
 				cep: "required",
@@ -171,6 +176,7 @@
 					required: "Insira um Email",
 					email: "Email Inválido"
 				},
+				nascimento: "Insira sua Data de Nascimento",
 				cpf: "Insira seu CPF",
 				rg: "Insira seu RG",
 				cep: "Insira seu CEP",
