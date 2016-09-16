@@ -447,10 +447,11 @@ body#cadastro{
 }
 #error{
   color: red;
+
 }
 label.error{
-  color: #1985a1;
-  display: inline;
+  color: #f00;
+  display: block;
   position: initial;
   right:20px;
   top: 20px;
