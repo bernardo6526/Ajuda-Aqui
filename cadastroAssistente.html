@@ -3,8 +3,7 @@
   <title>Ajuda Aqui! - Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/estilo.css">
   <style>
@@ -30,14 +29,6 @@
 			<div class="row">
 			<div class="panel-body">
 				<form action="BLL/cadastroAssistente.php" id="cadastroAssistente" method="post">
-					<div class="form-group has-feedback col-xs-6">
-						<input id="login" type="text" class="form-control" name="login" placeholder="Login">
-						<span id="success" class="glyphicon glyphicon-ok form-control-feedback" style="display:none"></span>
-						<span id="error" class="glyphicon glyphicon-remove  form-control-feedback" style="display:none"></span>
-					</div>
-					<div class="form-group col-xs-6">
-						<input id="senha" type="password" class="form-control" name="senha" placeholder="Senha">
-					</div>
 					<div class="form-group col-xs-6">
 						<input id="nome" type="text" class="form-control" name="nome" placeholder="Nome">
 					</div>
@@ -104,7 +95,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="js/jquery.mask.js"></script>
-	<script src="js/cadastro.js"></script>
 	<script src="js/jquery.validate.js"></script>
 	<script>
 		$("#cep").mask("99999-999");
@@ -136,15 +126,6 @@
 		
 		$("#cadastroAssistente").validate({
 			rules: {
-				login: {
-					required: true,
-					minlength: 4,
-					remote: "BLL/checkLogin.php"
-				},
-				senha: {
-					required: true, 
-					minlength: 3
-				},
 				nome: "required",
 				sobrenome: "required",
 				email: {
@@ -171,15 +152,6 @@
 				termos: "required"
 			},
 			messages: {
-				login: {
-					required: "Insira um Login",
-					minlength: "Mínimo 4 Caracteres",
-					remote: "Login Já Cadastrado"
-				},
-				senha: {
-					required: "Insira uma Senha",
-					minlength: "Mínimo 3 Caracteres"
-				},
 				nome: "Insira seu Nome",
 				sobrenome: "Insira seu Sobrenome",
 
@@ -200,6 +172,21 @@
 				tipo: "Marque sua Profissão",
 				nmroprof: "Insira seu Número Profissionalizante",
 				termos: "Aceite os Termos De Uso"
+			},
+			submitHandler: function(form) {
+				$.ajax({
+					url: $(form).attr('action'),
+					method: $(form).attr('method'),
+					data: $('form .form-group :input').serializeArray(),
+					success: function () {
+						alert($("input[name='nome']").val() + ' Cadastrado Com Sucesso');
+						window.location.replace('index.html');
+					},
+					error: function() {
+						alert('ERRO FATAL CARALHO FUDEU FORTE');
+						form.submit();
+					}
+				})
 			}
 		});
 	</script>

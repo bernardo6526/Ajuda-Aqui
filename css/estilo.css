@@ -1,4 +1,5 @@
 /*PLUGIN DAS FONT*/
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
 .text-left-not-xs, .text-left-not-sm, .text-left-not-md, .text-left-not-lg {
     text-align: left;
 }
@@ -209,7 +210,6 @@
   border-radius: 0px;
 }
 
-
 *{
   font-family: 'Open Sans', sans-serif;
   color: #333447;
@@ -338,22 +338,6 @@ i{
 #navbar-principal{
   border-radius: 0px;
 }
-#navbar-principal.affix {
-  position: fixed !important;
-  z-index: 1000;
-  top: 0;
-  width: 100%;
-  padding: 0;
-  -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
-  transition: all 0.3s;
-  margin-left: auto;
-  margin-right: auto;
-
-  /* ADDED BELOW */
-  right: 0;
-  left: 0;
-
-}
 span.form-control-feedback{
   right: 15px;
 }
@@ -364,6 +348,34 @@ span.form-control-feedback{
   border: 0px;
   background-color: rgba(0,0,0,0) !important;
 }
+
+#navbar-cadastro{
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    border: 0px;
+    background: linear-gradient(rgba(60,60,60,0.25),rgba(60,60,60,0));
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .navbar-brand{
+    margin-right: 10px;
+  }
+  #navbar-cadastro .navbar-nav > li > a{
+    color: #F3F5F5 ;
+  }
+  #navbar-cadastro .navbar-nav>.active>a {
+    border-radius: 0px !important;
+    background-color: rgba(255,255,255,0) !important;
+    border-bottom: 5px solid #1985a1 !important;
+    padding-bottom: 10px !important;
+    /*color: #1985a1 !important;*/
+    transition: border, 0.05s;
+    transition-timing-function: linear; 
+  }
 
 @media (min-width: 768px){
   #navbar-principal{
@@ -464,7 +476,7 @@ label.error{
   z-index: 1;
 
   display: block;
-  background-image: url('https://ouiser624.files.wordpress.com/2014/03/168813140.jpg');
+  background-image: url('../img/bg-cadastro.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -484,4 +496,17 @@ div #alguem-le-isso{
 .shadow-text{
   text-shadow: #ccc 0px 1px 1px;
 }
+.round{
+  border-radius: 4px;
+}
 
+input.form-control,
+select.form-control
+{
+  font-size: 16px;
+  height: 40px;
+  padding: 8px;
+}
+#termos{
+  margin-top:15px;
+}
