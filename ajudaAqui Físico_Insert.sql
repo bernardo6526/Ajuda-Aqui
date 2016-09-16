@@ -21,22 +21,24 @@ CREATE TABLE Clinica(
 CREATE TABLE Assistente(
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   nome VARCHAR(80) NOT NULL,
-  certificado VARCHAR(45) NOT NULL,
   cpf CHAR(11) NOT NULL,
+  email VARCHAR(70) NOT NULL,
+  nascimento DATE NOT NULL,
   rg CHAR(8) NOT NULL,
-  tipo VARCHAR(45) NOT NULL, /* Não confundir esse tipo do capeta com a informação se o cara é freelancer ou não Esse tipo se refere a especialização dele, ex: Fisioterapeuta ou A Físico */
-  Clinica_id INT UNSIGNED NULL,
+  telefone CHAR(11) NOT NULL,
   cidade VARCHAR(60) NOT NULL,
   Bairro VARCHAR(60) NOT NULL,
   Logradouro VARCHAR(60) NOT NULL,
   complemento VARCHAR(30) NOT NULL,
   numero INT UNSIGNED NOT NULL,
   uf CHAR(2) NOT NULL,
-  cep VARCHAR(45) NOT NULL,
+  cep VARCHAR(45) NOT NULL,   
+  certificado VARCHAR(45) NOT NULL,  
+  tipo VARCHAR(45) NOT NULL, /* Não confundir esse tipo do capeta com a informação se o cara é freelancer ou não Esse tipo se refere a especialização dele, ex: Fisioterapeuta ou A Físico */
+  Clinica_id INT UNSIGNED NULL, 
   nota INT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (Clinica_id)
-  REFERENCES Clinica(id)
+  FOREIGN KEY (Clinica_id) REFERENCES Clinica(id)
 );
 
 
@@ -109,8 +111,8 @@ CREATE TABLE Pagamento (
 	id INT AUTO_INCREMENT NOT NULL,
 	login VARCHAR(40) NOT NULL,
 	senha VARCHAR(40) NOT NULL,
-	tipo INT UNSIGNED NULL,
-	fk INT NULL, -- ASSOCIAÇÃO POLIFÓRMICA... POR FAVOR LEIA OS COMENTÁRIOS ABAIXO
+	tipo INT UNSIGNED NOT NULL,
+	fk INT NOT NULL, -- ASSOCIAÇÃO POLIFÓRMICA... POR FAVOR LEIA OS COMENTÁRIOS ABAIXO
 	PRIMARY KEY (id),
 	FOREIGN KEY(tipo)
 		REFERENCES Tipo_Usuario(id)
@@ -153,14 +155,16 @@ VALUES(NULL, 'Associação Mineira dos Paraplégicos – AMP', 21728746000196 , 
 INSERT INTO Clinica(id, nome,cnpj, telefone, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
 VALUES(NULL, 'Clínica de Psicologia Infantil – CPI', 19884295000134 , 32923484, 'Belo Horizonte', ' Barro Preto', 'Rua Guajajaras', 'VAZIO', 1607, 'MG', 30180101 , 9.0);
 
-INSERT INTO Assistente(id, nome, certificado, cpf, rg, tipo, Clinica_id, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
-VALUES(NULL, 'Alberto Fonseca Araujo', 'ABCD12345678', 12345678911, 12345678, 'A. Visual', 1, 'Belo Horizonte', 'Carlos Prates', 'Rua Corumbá', 'VAZIO', 224, 'MG', 30710280, 10.0);
-INSERT INTO Assistente(id, nome, certificado, cpf, rg, tipo, Clinica_id, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
-VALUES(NULL, 'Juliana Campos', 'BCDA87654321', 24681230655, 94545670, 'A. Visual', 2, 'Belo Horizonte', 'Saudade', 'Rua Juramento', 'VAZIO', 1464, 'MG', 30285048, 7.5);
-INSERT INTO Assistente(id, nome, certificado, cpf, rg, tipo, Clinica_id, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
-VALUES(NULL, 'Mauro Fernandes Pinto', 'CDAB53812952', 04389240699, 12540083, 'A. Fisico', 3, 'Belo Horizonte', 'Santa Efigênia', 'Avenida do Contorno', 'VAZIO', 2655, 'MG', 30110080 , 8.5);
-INSERT INTO Assistente(id, nome, certificado, cpf, rg, tipo, Clinica_id, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
-VALUES(NULL, 'Fatima Veras de Souza', 'DABC87335671', 77340688221, 22047679, 'A. Fisico', 4, 'Belo Horizonte', ' Barro Preto', 'Rua Guajajaras', 'VAZIO', 1607, 'MG', 30180101 , 9.0);
+
+-- INSERT INTO Assistente(id, nome, certificado, cpf, rg, tipo, Clinica_id, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
+-- VALUES(NULL, 'Alberto Fonseca Araujo', 'ABCD12345678', 12345678911, 12345678, 'A. Visual', 1, 'Belo Horizonte', 'Carlos Prates', 'Rua Corumbá', 'VAZIO', 224, 'MG', 30710280, 10.0);
+-- INSERT INTO Assistente(id, nome, certificado, cpf, rg, tipo, Clinica_id, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
+-- VALUES(NULL, 'Juliana Campos', 'BCDA87654321', 24681230655, 94545670, 'A. Visual', 2, 'Belo Horizonte', 'Saudade', 'Rua Juramento', 'VAZIO', 1464, 'MG', 30285048, 7.5);
+-- INSERT INTO Assistente(id, nome, certificado, cpf, rg, tipo, Clinica_id, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
+-- VALUES(NULL, 'Mauro Fernandes Pinto', 'CDAB53812952', 04389240699, 12540083, 'A. Fisico', 3, 'Belo Horizonte', 'Santa Efigênia', 'Avenida do Contorno', 'VAZIO', 2655, 'MG', 30110080 , 8.5);
+-- INSERT INTO Assistente(id, nome, certificado, cpf, rg, tipo, Clinica_id, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
+-- VALUES(NULL, 'Fatima Veras de Souza', 'DABC87335671', 77340688221, 22047679, 'A. Fisico', 4, 'Belo Horizonte', ' Barro Preto', 'Rua Guajajaras', 'VAZIO', 1607, 'MG', 30180101 , 9.0);
+-- Estrutura da tabela mudou, refazer inserts
 
 INSERT INTO Cliente(id, nome, cpf, email, nascimento, rg, telefone, tipo_deficiencia, cidade, Bairro, Logradouro, complemento, numero, uf, cep)
 VALUES(NULL, 'Janaina de Araujo Amaral', 11987654321, 'jana21@gmail.com', '1969-10-09', 87654321, 993456754, 'Deficiente Visual', 'Belo Horizonte', 'Gloria', 'Rua Eneida', 'VAZIO', 567, 'MG', 30140008); 
@@ -204,10 +208,9 @@ INSERT INTO Tipo_Usuario(id,nome)
 VALUES(2,'Assistente');
 INSERT INTO Tipo_Usuario(id,nome)
 VALUES(3,'Cliente');
-INSERT INTO Tipo_Usuario(id,nome)
-VALUES(4,'Cliente');
 
-INSERT INTO Usuario(id, login, senha,fk)
-VALUES (null, 'teste', '123',1, 1);
+INSERT INTO Usuario(id, login, senha,tipo,fk) VALUES (null, 'clinica', '123',1,1);
+INSERT INTO Usuario(id, login, senha,tipo,fk) VALUES (null, 'assistente', '123',2,1);
+INSERT INTO Usuario(id, login, senha,tipo,fk) VALUES (null, 'cliente', '123',3,1);
 
-INSERT INTO usuario VALUES (NULL,'cliente','123',3,1);
+
