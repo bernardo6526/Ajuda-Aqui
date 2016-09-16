@@ -83,7 +83,7 @@
 					</div>
 
 						<label for="termos" class="text-left col-xs-12">
-							<input type="checkbox" id="termos"> Aceito os <a class="cor" href="#">Termos de uso</a>
+							<input type="checkbox" name="termos" id="termos"> Aceito os <a class="cor" href="#">Termos de uso</a>
 						</label>
 						<div class="col-xs-12">	
 							<input type="submit" class="col-xs-12  btn btn-primary btn-default" style="margin-top:20px;" value="Cadastrar-se">
@@ -107,6 +107,7 @@
 		$("#rg").mask("99.999.999");
 	    $("#cpf").mask("999.999.999-99");
 
+
 		var options =  {onKeyPress: function(telefone, e, field, options) {
 			var masks = ['(00)00000-0000', '(00)0000-00000'];
 			mask = (telefone.length>13) ? masks[0] : masks[1];
@@ -122,6 +123,13 @@
 		// 	requestAjax(formulario);
 		// });
 		
+		var formulario = $("#cadastroAssistente");
+
+		$('#login').on("keyup", function() {
+			requestAjax(formulario);
+		});
+		
+		
 		$("#cadastroAssistente").validate({
 			rules: {
 				login: {
@@ -134,18 +142,17 @@
 				},
 				nome: "required",
 				sobrenome: "required",
-
 				email: {
 					required: true,
 					email: true
 				},
-				nmroprof: "required",
 				cpf: "required",
 				rg: "required",
 				cep: "required",
 				numero: "required",
 				telefone: "required",
 				tipo: "required",
+				nmroprof: "required",
 				termos: "required"
 			},
 			messages: {
@@ -159,18 +166,18 @@
 				},
 				nome: "Insira seu Nome",
 				sobrenome: "Insira seu Sobrenome",
-				apelido: "Insira seu Apelido",
+
 				email: {
 					required: "Insira um Email",
 					email: "Email Inválido"
 				},
-				nmroprof:: "Insira seu Número Profissionalizante",
-				cpf: "Insira seu Cpf",
+				cpf: "Insira seu CPF",
 				rg: "Insira seu RG",
 				cep: "Insira seu CEP",
 				numero: "Insira seu Número",
 				telefone: "Insira um Telefone",
-				tipo: "Selecione sua Deficiência",
+				tipo: "Marque sua Profissão",
+				nmroprof: "Insira seu Número Profissionalizante",
 				termos: "Aceite os Termos De Uso"
 			}
 		});
