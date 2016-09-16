@@ -105,7 +105,8 @@
 			rules: {
 				login: {
 					required: true,
-					minlength: 4
+					minlength: 4,
+					remote: "BLL/checkLogin.php"
 				},
 				senha: {
 					required: true, 
@@ -114,9 +115,18 @@
 				nome: "required",
 				email: {
 					required: true,
-					email: true
+					email: true,
+					remote: {
+						url: "BLL/checkEmail.php",
+						data: {
+							tabela: "clinica"
+						}
+					}
 				},
-				cep: "required",
+				cep: {
+					required: true,
+					remote: "BLL/checkCep.php"
+				},
 				numero: "required",
 				telefone: "required",
 				cnpj: "required",
@@ -125,7 +135,8 @@
 			messages: {
 				login: {
 					required: "Insira um Login",
-					minlength: "Mínimo 4 Caracteres"
+					minlength: "Mínimo 4 Caracteres",
+					remote: "Login Já Tomado"
 				},
 				senha: {
 					required: "Insira uma Senha",
@@ -135,9 +146,13 @@
 
 				email: {
 					required: "Insira um Email",
-					email: "Email Inválido"
+					email: "Email Inválido",
+					remote: "Email Já Tomado"
 				},
-				cep: "Insira seu CEP",
+				cep: {
+					required: "Insira seu CEP",
+					remote: "Cep Inválido"
+				},
 				numero: "Insira seu Número",
 				telefone: "Insira um Telefone",
 				cnpj: "Insira seu CNPJ",

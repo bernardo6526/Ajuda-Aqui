@@ -138,7 +138,8 @@
 			rules: {
 				login: {
 					required: true,
-					minlength: 4
+					minlength: 4,
+					remote: "BLL/checkLogin.php"
 				},
 				senha: {
 					required: true, 
@@ -148,12 +149,21 @@
 				sobrenome: "required",
 				email: {
 					required: true,
-					email: true
+					email: true,
+					remote: {
+						url: "BLL/checkEmail.php",
+						data: {
+							tabela: "assistente"
+						}
+					}
 				},
 				nascimento: "required",
 				cpf: "required",
 				rg: "required",
-				cep: "required",
+				cep: {
+					required: true,
+					remote: "BLL/checkCep.php"
+				},
 				numero: "required",
 				telefone: "required",
 				tipo: "required",
@@ -163,7 +173,8 @@
 			messages: {
 				login: {
 					required: "Insira um Login",
-					minlength: "Mínimo 4 Caracteres"
+					minlength: "Mínimo 4 Caracteres",
+					remote: "Login Já Cadastrado"
 				},
 				senha: {
 					required: "Insira uma Senha",
@@ -174,12 +185,16 @@
 
 				email: {
 					required: "Insira um Email",
-					email: "Email Inválido"
+					email: "Email Inválido",
+					remote: "Email Já Tomado"
 				},
 				nascimento: "Insira sua Data de Nascimento",
 				cpf: "Insira seu CPF",
 				rg: "Insira seu RG",
-				cep: "Insira seu CEP",
+				cep: {
+					required: "Insira seu CEP",
+					remote: "CEP Inválido"
+				},
 				numero: "Insira seu Número",
 				telefone: "Insira um Telefone",
 				tipo: "Marque sua Profissão",

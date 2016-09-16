@@ -136,7 +136,12 @@
 				email: {
 					required: true,
 					email: true,
-					remote: "BLL/checkEmail.php"
+					remote: {
+						url: "BLL/checkEmail.php",
+						data: {
+							tabela: "cliente"
+						}
+					}
 				},
 				nascimento: "required",
 				cpf: "required",
