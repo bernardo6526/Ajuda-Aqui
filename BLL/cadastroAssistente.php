@@ -43,7 +43,7 @@ try{
 	if ($bd->conexaobd) {
 
 		$sql = "INSERT INTO assistente VALUES(NULL, '$nome $sobrenome', '$cpf', '$email', '$nascimento',";
-		$sql .= " '$rg', '$telefone','$tipo','$endereco->cidade', '$endereco->bairro', '$endereco->logradouro',";
+		$sql .= " '$rg', '$telefone','$endereco->cidade', '$endereco->bairro', '$endereco->logradouro',";
 		$sql .= " '$complemento', '$numero', '$endereco->estado',$cep,$certificado,'$tipo',null,$nota)";
 
 		var_dump($sql);
