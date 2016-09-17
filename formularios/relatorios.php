@@ -61,13 +61,13 @@
 	if (isset ($_POST['tabela']))
 	{
 		$tabela = $_POST['tabela'];
-		ECHO $tabela;
+		
 		
 		
 		if(isset($_POST['pesq']))
 		{
 			$pesq = $_POST['pesq'];
-			ECHO $pesq;
+			
 		}
 		else 
 		{
@@ -85,10 +85,10 @@
 				else {
 						$sql = "SELECT clinica.nome,clinica.nota,clinica.uf,clinica.cidade FROM clinica WHERE clinica.nome LIKE '%$pesq%' OR clinica.nota = '$pesq' ";
 						$sql .= "OR clinica.uf LIKE '%$pesq%' OR clinica.cidade LIKE '%$pesq%'";
-						ECHO $sql;
+						
 					 }
 					 
-					ECHO $rBLL->pesqCliente($sql);
+					ECHO $rBLL->pesqClinica($sql);
 					
 			break;
 			case "Assistente":

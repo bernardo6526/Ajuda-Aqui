@@ -1,11 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-  
-  <meta charset="utf-8">
-  
-</head>
-<body>
+
 <?php
 
 class relatorioBLL 
@@ -19,14 +12,17 @@ class relatorioBLL
 	
 	public function __construct() 
 	{
+		
 		require_once("../DAL/conexao.php");
 		$this->bd = new banco("ajudaaqui");
+		header("Content-type: text/html; charset=utf-8");
+		
 		
 		
 	}
 
 
-	public function pesqCliente($sql)
+	public function pesqClinica($sql)
 	{
 		
 		$this->sql = $sql;
@@ -35,7 +31,7 @@ class relatorioBLL
 		
 		
 		$this->exibicao =	"<div class='container'>
-		<h2>Clínica</h2>
+		<h2>Cl�nica</h2>
 		
 		<table class='table'>
 			<thead>
@@ -61,12 +57,10 @@ class relatorioBLL
 				$this->exibicao .= "</tbody>
 			</table>
 		</div>";
-		return $this->exibicao;
+		return utf8_encode($this->exibicao);
 		
 		
 	}
 }
 
 ?>
-</body>
-</html>
