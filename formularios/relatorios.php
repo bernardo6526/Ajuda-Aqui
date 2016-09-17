@@ -61,13 +61,13 @@
 	if (isset ($_POST['tabela']))
 	{
 		$tabela = $_POST['tabela'];
-		
+		ECHO $tabela;
 		
 		
 		if(isset($_POST['pesq']))
 		{
 			$pesq = $_POST['pesq'];
-			
+			ECHO $pesq;
 		}
 		else 
 		{
@@ -80,12 +80,12 @@
 			case "Clinica":
 				if ($pesq == "")
 				{
-					$sql = "SELECT clinica.nome,clinica.nota,clinica.uf,clinica.cidade FROM clinica";
+					$sql = "SELECT clinica.nome,clinica.nota,clinica.telefone,clinica.uf,clinica.cidade FROM clinica";
 				}
 				else {
-						$sql = "SELECT clinica.nome,clinica.nota,clinica.uf,clinica.cidade FROM clinica WHERE clinica.nome LIKE '%$pesq%' OR clinica.nota = '$pesq' ";
+						$sql = "SELECT clinica.nome,clinica.nota,clinica.telefone,clinica.uf,clinica.cidade FROM clinica WHERE clinica.nome LIKE '%$pesq%' OR clinica.nota = '$pesq' OR clinica.telefone = '$pesq' ";
 						$sql .= "OR clinica.uf LIKE '%$pesq%' OR clinica.cidade LIKE '%$pesq%'";
-						
+						ECHO $sql;
 					 }
 					 
 					ECHO $rBLL->pesqClinica($sql);
@@ -113,6 +113,7 @@
 						$sql .= "OR cliente.email LIKE '%$pesq%' OR cliente.tipo_deficiencia LIKE '%$pesq%' OR cliente.uf LIKE '%$pesq' OR cliente.cidade LIKE '%$pesq%'";
 						ECHO $sql;
 					 }
+
 			break;
     
 		}
