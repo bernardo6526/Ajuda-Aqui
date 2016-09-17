@@ -17,6 +17,23 @@
       <![endif]-->
 </head>
 <body>
+	
+
+	<!-- TIMEOUT -->
+	<?php
+		session_start();
+		
+		if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) 
+		{
+			// last request was more than 30 minutes ago
+			session_unset();     // unset $_SESSION variable for the run-time 
+			session_destroy();   // destroy session data in storage
+			header("Location: index.html");
+		}
+		$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+		
+	?>
+
 	<nav class="navbar navbar-default navbar-static-top" style="background-color:#fff">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -34,7 +51,7 @@
 				<span class="nav navbar-nav navbar-right">
 					<ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php ECHO isset($_SESSION['user']) ? $_SESSION['user']->login:"Admin DEV" ?><b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php ECHO isset($_SESSION['user']) ? $_SESSION['user']->login." ":"Admin DEV " ?><b class="caret"></b></a>
               <ul class="dropdown-menu animated fadeInUp">
                 <li><a href="index.html" id="sair"><span class="glyphicon glyphicon-off"></span> Sair</a></li>
               </ul>
@@ -73,20 +90,5 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="js/custom.js"></script>
-
-
-	<!-- TIMEOUT -->
-	<?php
-		session_start();
-		
-		if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) 
-		{
-			// last request was more than 30 minutes ago
-			session_unset();     // unset $_SESSION variable for the run-time 
-			session_destroy();   // destroy session data in storage
-			header("Location: index.html");
-		}
-		$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-	?>
 </body>
 </html>
