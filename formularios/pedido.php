@@ -7,7 +7,7 @@
 			<div class="form-group">
 				<div class="input-group">
 					<div class="input-group-addon"><button data-target="#us6-dialog" data-toggle="modal" class="btn-link" style="text-decoration:none">Procurar</button></div>
-					<input type="text" placeholder="Localização" name="localizacao" id="localizacao" required disabled class="form-control">
+					<input type="text" placeholder="Localização" name="localizacao" id="localizacao" required class="readonly form-control">
 				</div>
 			</div>
 			<p class="lead">Faça Um pedido</p>
@@ -41,7 +41,7 @@
 					?>
 				</tbody>
 			</table>
-			<input id="selecionado" type="text" disabled required class="form-control" placeholder="Assistente Selecionado">
+			<input id="selecionado" type="text" required class="readonly form-control" placeholder="Assistente Selecionado">
 			<div class="">	
 				<input type="submit" value="Pedir!" class="btn btn-primary col-xs-12" onclick="alert('AINDA NÃO IMPLEMENTADO')" style="margin-top:30px">
 			</div>
@@ -97,12 +97,18 @@
 			$('#us3').locationpicker('autosize');
 		});
 
+		$("td.telefone").mask("(00)0000-00000");
+
 		$('tr.assistente').on('click', function() {
 			$('tr.active').removeClass('active');
 			$(this).addClass('active');
 			$nome = $('tr.active td.nome').text();
 			$('#selecionado').val($nome);
 		});
+
+		$(".readonly").keydown(function(e){
+        e.preventDefault();
+    });
 
 		$("#escolher").on('click', function() {
 			$endereco = $('#us3-address').val();

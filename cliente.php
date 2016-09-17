@@ -91,5 +91,6 @@
 	<script src="js/custom.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHFQb-U9gOJUlA6jx_25oCqo8IXc-EXD8&language=pt-br&libraries=places&sensor=false"></script>
 	<script src="js/locationpicker.jquery.min.js"></script>
+  <script src="js/jquery.mask.js"></script>
 </body>
 </html>
