@@ -94,12 +94,12 @@
 			case "Assistente":
 				if ($pesq == "")
 				{
-					$sql = "SELECT assistente.nome,assistente.nota,assistente.telefone,assistente.email,assistente.tipo,assistente.certificado,clinica.nome,assistente.uf,assistente.cidade FROM assistente JOIN clinica WHERE clinica_id = clinica.id";
+					$sql = "SELECT assistente.nome,assistente.nota,assistente.telefone,assistente.email,assistente.tipo,assistente.certificado,assistente.clinica_id,assistente.uf,assistente.cidade FROM assistente";
 				}
 				else {
-						$sql = "SELECT assistente.nome,assistente.nota,assistente.telefone,assistente.email,assistente.tipo,assistente.certificado,clinica.nome,assistente.uf,assistente.cidade FROM assistente JOIN clinica WHERE clinica_id = clinica.id ";
-						$sql .= "OR assistente.nome LIKE '%$pesq%' OR assistente.nota = '$pesq' OR assistente.telefone LIKE '%$pesq%' OR assistente.email LIKE '%$pesq%' OR assistente.tipo LIKE '%$pesq%' OR assistente.certificado LIKE '%$pesq%' OR clinica.nome LIKE '%$pesq%' OR assistente.uf LIKE '%$pesq%' ";
-						$sql .= "OR assistente.cidade LIKE '%$pesq%'";
+						$sql = "SELECT clinica.nome,assistente.nome,assistente.nota,assistente.telefone,assistente.email,assistente.tipo,assistente.certificado,assistente.clinica_id,assistente.uf,assistente.cidade FROM assistente JOIN clinica";
+						$sql .= " WHERE clinica_id = clinica.id AND (assistente.nome LIKE '%$pesq%' OR assistente.nota = '$pesq' OR assistente.telefone LIKE '%$pesq%' OR assistente.email LIKE '%$pesq%' OR assistente.tipo LIKE '%$pesq%' OR assistente.certificado LIKE '%$pesq%' OR clinica.nome LIKE '%$pesq%' OR assistente.uf LIKE '%$pesq%' ";
+						$sql .= "OR assistente.cidade LIKE '%$pesq%')";
 						ECHO $sql;
 					 }
 					 

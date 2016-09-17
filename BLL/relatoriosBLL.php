@@ -4,10 +4,14 @@
 class relatorioBLL 
 {
 	private $result;
+	private $resultfk;
 	private $qtdeLinhas;
 	private $row;
+	private $rowfk;
 	public $exibicao;
+	public $exibicaofk;
 	private $sql;
+	private $sqlfk;
 	private $bd;
 	
 	public function __construct() 
@@ -15,7 +19,7 @@ class relatorioBLL
 		
 		require_once("../DAL/conexao.php");
 		$this->bd = new banco("ajudaaqui");
-		header("Content-type: text/html; charset=utf-8");
+		
 		
 		
 		
@@ -72,7 +76,7 @@ class relatorioBLL
 		
 		
 		$this->exibicao =	"<div class='container'>
-		<h2>Clínica</h2>
+		<h2>Assistente</h2>
 		
 		<table class='table'>
 			<thead>
@@ -83,7 +87,7 @@ class relatorioBLL
 					<th>Email</th>
 					<th>Tipo</th>
 					<th>Certificado</th>
-					<!--<th>Clínica</th>-->
+					<th>Clínica</th>
 					<th>UF</th>
 					<th>Cidade</th>
 				</tr>
@@ -99,7 +103,7 @@ class relatorioBLL
 					$this->exibicao .= "<td>".$this->row["email"]."</td>";
 					$this->exibicao .= "<td>".$this->row["tipo"]."</td>";
 					$this->exibicao .= "<td>".$this->row["certificado"]."</td>";
-					 
+					$this->exibicao .= "<td>".$this->fk_join("clinica","nome",$this->row["clinica_id"])."</td>";
 					$this->exibicao .= "<td>".$this->row["uf"]."</td>";
 					$this->exibicao .= "<td>".$this->row["cidade"]."</td></tr>";
 					
@@ -121,7 +125,7 @@ class relatorioBLL
 		
 		
 		$this->exibicao =	"<div class='container'>
-		<h2>Clínica</h2>
+		<h2>Cliente</h2>
 		
 		<table class='table'>
 			<thead>
@@ -172,6 +176,16 @@ class relatorioBLL
 		
 		
 	}
+							
+		public function fk_join($tabela,$campo,$id)
+		{
+			$this->sqlfk = "SELECT $tabela.$campo FROM $tabela WHERE $tabela.id = $id";
+			$this->resultfk=mysqli_query($this->bd->conexaobd,$this->sqlfk);
+			$this->rowfk=mysqli_fetch_assoc($this->resultfk);
+			$this->exibicaofk = $this->rowfk["$campo"];
+			
+			return utf8_encode($this->exibicaofk);
+		}
 	
 }
 
