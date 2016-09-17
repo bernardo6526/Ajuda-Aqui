@@ -30,8 +30,7 @@
 			session_destroy();   // destroy session data in storage
 			header("Location: index.html");
 		}
-		$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-		
+		$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp		
 	?>
 
 	<nav class="navbar navbar-default navbar-static-top" style="background-color:#fff">
@@ -53,7 +52,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <?php ECHO isset($_SESSION['user']) ? $_SESSION['user']->login:"Admin DEV" ?> <b class="caret"></b></a>
               <ul class="dropdown-menu animated fadeInUp">
-                <li><a href="#" data-url="formularios/editarDados"><span class="glyphicon glyphicon-pencil"></span> Perfil</a></li>
+                <li><a href="#" id="editar" data-url="formularios/editar.php?tipo=<?php echo $_SESSION['user']->tipo ?>&fk=<?php echo $_SESSION['user']->fk ?>"><span class="glyphicon glyphicon-pencil"></span> Perfil</a></li>
                 <li><a href="index.html" id="sair"><span class="glyphicon glyphicon-off"></span> Sair</a></li>
               </ul>
             </li>
@@ -70,7 +69,7 @@
 					<ul class="nav nav-sidebar">
 						<!-- Main menu -->
 						<li class="current"><a href="#" data-url=""><i class="glyphicon glyphicon-home"></i> Opção Home</a></li>
-						<li><a href="#" data-url="formularios/pedido.html"><i class="glyphicon glyphicon-th-list"></i> Faça Um Pedido</a></li>
+						<li><a href="#" data-url="formularios/pedido.php"><i class="glyphicon glyphicon-th-list"></i> Faça Um Pedido</a></li>
 					</ul>
 				</div>
 			</div>

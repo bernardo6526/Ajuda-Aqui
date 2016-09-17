@@ -29,6 +29,16 @@ $(document).ready(function(){
       location.reload();
     }
   });
+
+  $("#editar").on('click', function() {
+    $url = $(this).attr('data-url');
+    if ($url != "") {
+      $("#conteudo").load($url);
+    }
+    else {
+      location.reload();
+    }
+  });
   
   $("#sair").on('click', function() {
     $.get("../BLL/sessionDestroy.php", function() {
