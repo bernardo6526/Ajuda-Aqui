@@ -53,8 +53,8 @@
 	<div class="page-content">
 		<div class="row">
 			
-			<div id="conteudo" class="col-md-10 ">
-				<div class="content-box-header text-center ">
+			<div id="conteudo" class="container ">
+				<div class="content-box-header text-center  ">
 					<h2>Termos de Uso</h2>
 				</div>
 				<div class="content-box-large box-with-header ">
@@ -98,7 +98,7 @@
 						</p>
 						<b>Leis aplicáveis</b>
 						<p>
-						Este site é controlado e operado pelo Estevão Silva a partir de seu escritório na cidade da Putario estado de Locura e não garante que o conteúdo ou materiais estejam disponíveis para uso em outras localidades. Seu acesso é obrigatório em territórios onde o conteúdo seja considerado ilegal. Aqueles que optarem por acessar este site a partir de outras localidades o farão por iniciativa própria e serão responsáveis pelo cumprimento das leis do putero. Os materiais não deverão ser usados ou exportados em descumprimento das leis do tráfico sobre exportação. Qualquer pendência com relação aos materiais será dirimida pelas leis do tráfico.
+						Este site é controlado e operado pelo Estevão Silva a partir de seu escritório na cidade da Putaria estado de Locura e não garante que o conteúdo ou materiais estejam disponíveis para uso em outras localidades. Seu acesso é obrigatório em territórios onde o conteúdo seja considerado ilegal. Aqueles que optarem por acessar este site a partir de outras localidades o farão por iniciativa própria e serão responsáveis pelo cumprimento das leis do putero. Os materiais não deverão ser usados ou exportados em descumprimento das leis do tráfico sobre exportação. Qualquer pendência com relação aos materiais será dirimida pelas leis do tráfico.
 						O acesso ao 4tube.com representa a aceitação expressa e irrestrita dos termos de uso acima descritos.</p>	
 				</div>	
 			</div>
