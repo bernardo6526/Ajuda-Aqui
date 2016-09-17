@@ -38,6 +38,7 @@ class relatorioBLL
 				<tr>
 					<th>Nome</th>
 					<th>Nota</th>
+					<th>Telefone</th>
 					<th>UF</th>
 					<th>Cidade</th>
 				</tr>
@@ -49,6 +50,7 @@ class relatorioBLL
 					$this->row=mysqli_fetch_assoc($this->result);
 					$this->exibicao .= "<tr><td>".$this->row["nome"]."</td>";
 					$this->exibicao .= "<td>".$this->row["nota"]."</td>";
+					$this->exibicao .= "<td>".$this->row["telefone"]."</td>";
 					$this->exibicao .= "<td>".$this->row["uf"]."</td>";
 					$this->exibicao .= "<td>".$this->row["cidade"]."</td></tr>";
 					
