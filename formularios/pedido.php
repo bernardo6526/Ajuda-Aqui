@@ -43,7 +43,7 @@
 			</table>
 			<input id="selecionado" type="text" disabled required class="form-control" placeholder="Assistente Selecionado">
 			<div class="">	
-				<input type="submit" value="Pedir!" class="btn btn-primary col-xs-12" style="margin-top:30px">
+				<input type="submit" value="Pedir!" class="btn btn-primary col-xs-12" onclick="alert('AINDA NÃO IMPLEMENTADO')" style="margin-top:30px">
 			</div>
 			<p class="text-right">Ajuda Aqui!</p>
 		</form>
