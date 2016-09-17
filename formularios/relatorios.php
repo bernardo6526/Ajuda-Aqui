@@ -23,13 +23,13 @@
 					<h3>Selecione um parâmetro</h3> 
 					
 					<label class="radio-inline">
-						<input type="radio" name="tabela">Clínica
+						<input type="radio" name="tabela" value="Clinica">Clínica
 					</label>
 					<label class="radio-inline">
-						<input type="radio" name="tabela">Assistente
+						<input type="radio" name="tabela" value="Assistente">Assistente
 					</label>
 					<label class="radio-inline">
-						<input type="radio" name="tabela">Cliente
+						<input type="radio" name="tabela" value="Cliente">Cliente
 					</label>		
 		
 					
@@ -68,25 +68,30 @@ if ($bd->conexaobd)
 	if (isset ($_POST['tabela']))
 	{
 		$tabela = $_POST['tabela'];
+		ECHO $tabela;
+		
+		
 		if(isset($_POST['pesq']))
 		{
 			$pesq = $_POST['pesq'];
+			ECHO $pesq;
 		}
 		else 
 		{
 			$pesq = "";
+			
 		}
 		
 		switch ($tabela) 
 		{
-			case "Clínica":
+			case "Clinica":
 				if ($pesq == "")
 				{
 					$sql = "SELECT clinica.nome,clinica.nota,clinica.uf,clinica.cidade FROM clinica";
 				}
 				else {
-						$sql = "SELECT clinica.nome,clinica.nota,clinica.uf,clinica.cidade FROM clinica WHERE clinica.nome LIKE '%$pesq%' OR clinica.nota = $pesq ";
-						$sql .= "OR clinica.uf LIKE '%pesq%' OR clinica.cidade LIKE '%clinica.cidade%'";
+						$sql = "SELECT clinica.nome,clinica.nota,clinica.uf,clinica.cidade FROM clinica WHERE clinica.nome LIKE '%$pesq%' OR clinica.nota = '$pesq' ";
+						$sql .= "OR clinica.uf LIKE '%$pesq%' OR clinica.cidade LIKE '%$pesq%'";
 						ECHO $sql;
 					 }
 			break;
@@ -96,7 +101,10 @@ if ($bd->conexaobd)
 					$sql = "SELECT assistente.nome,assistente.nota,clinica.nome,assistente.uf,assistente.cidade FROM assistente JOIN clinica WHERE clinica_id = clinica.id";
 				}
 				else {
-						$sql = "SELECT cliente.nome,cliente.email,cliente.tipo_deficiencia,cliente.uf,cliente.cidade FROM cliente";
+						$sql = "SELECT assistente.nome,assistente.nota,clinica.nome,assistente.uf,assistente.cidade FROM assistente JOIN clinica WHERE clinica_id = clinica.id ";
+						$sql .= "AND assistente.nome LIKE '%$pesq%' OR assistente.nota = '$pesq' OR clinica.nome LIKE '%$pesq%' OR assistente.uf LIKE '%$pesq%' ";
+						$sql .= "OR assistente.cidade LIKE '%$pesq%'";
+						ECHO $sql;
 					 }
 			break;
 			case "Cliente":
@@ -105,13 +113,16 @@ if ($bd->conexaobd)
 					$sql = "SELECT cliente.nome,cliente.email,cliente.tipo_deficiencia,cliente.uf,cliente.cidade FROM cliente";
 				}
 				else {
-						$sql = "SELECT cliente.nome,cliente.email,cliente.tipo_deficiencia,cliente.uf,cliente.cidade FROM cliente";
+						$sql = "SELECT cliente.nome,cliente.email,cliente.tipo_deficiencia,cliente.uf,cliente.cidade FROM cliente WHERE cliente.nome LIKE '%$pesq%' ";
+						$sql .= "OR cliente.email LIKE '%$pesq%' OR cliente.tipo_deficiencia LIKE '%$pesq%' OR cliente.uf LIKE '%$pesq' OR cliente.cidade LIKE '%$pesq%'";
+						ECHO $sql;
 					 }
 			break;
     
 		}
 		
 	}
+	else{ECHO "Radiobtn bugou";}
 	
 	
 	
