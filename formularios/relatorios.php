@@ -53,13 +53,8 @@
 
 <?php 
 
-require_once("../BLL/relatoriosBLL.php");
-
-
-
-
-
-
+	require_once("../DAL/conexao.php");
+	$bd = new banco("ajudaaqui");
 
 
 if ($bd->conexaobd) 
