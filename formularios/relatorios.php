@@ -88,7 +88,8 @@
 						ECHO $sql;
 					 }
 					 
-					ECHO $rBLL->pesqCliente($tabela,$sql);
+					ECHO $rBLL->pesqCliente($sql);
+					
 			break;
 			case "Assistente":
 				if ($pesq == "")

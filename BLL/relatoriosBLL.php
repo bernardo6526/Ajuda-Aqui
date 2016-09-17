@@ -1,22 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  
+</head>
+<body>
 <?php
 
 class relatorioBLL 
 {
-	function __construct() {
+	private $result;
+	private $qtdeLinhas;
+	private $row;
+	public $exibicao;
+	private $sql;
+	private $bd;
+	
+	public function __construct() 
+	{
 		require_once("../DAL/conexao.php");
-		$bd = new banco("ajudaaqui");
+		$this->bd = new banco("ajudaaqui");
+		
+		
 	}
 
 
-	function pesqCliente($tabela,$sql)
+	public function pesqCliente($sql)
 	{
 		
-		$this->$result=mysqli_query($bd->conexaobd,$sql);
-		$this->$qtdeLinhas = mysqli_num_rows($result);
-		$this->$row=mysqli_fetch_assoc($result);
-
-		$this->$exibicao =	"<div class='container'>
-		<h2>$tabela</h2>
+		$this->sql = $sql;
+		$this->result=mysqli_query($this->bd->conexaobd,$this->sql);
+		$this->qtdeLinhas = mysqli_num_rows($this->result);
+		
+		
+		$this->exibicao =	"<div class='container'>
+		<h2>Clínica</h2>
 		
 		<table class='table'>
 			<thead>
@@ -29,21 +48,25 @@ class relatorioBLL
 			</thead>
 			<tbody>";
 
-				for($x=0; $x < $qtdeLinhas; $x++)
+				for($x=0; $x < $this->qtdeLinhas; $x++)
 				{
-					
-					$this->$exibicao .= "<tr><td>".$row["nome"]."</td>";
-					$this->$exibicao .= "<td>".$row["nota"]."</td>";
-					$this->$exibicao .= "<td>".$row["uf"]."</td>";
-					$this->$exibicao .= "<td>".$row["cidade"]."</td></tr>";
+					$this->row=mysqli_fetch_assoc($this->result);
+					$this->exibicao .= "<tr><td>".$this->row["nome"]."</td>";
+					$this->exibicao .= "<td>".$this->row["nota"]."</td>";
+					$this->exibicao .= "<td>".$this->row["uf"]."</td>";
+					$this->exibicao .= "<td>".$this->row["cidade"]."</td></tr>";
 					
 				}
 				
-				$this->$exibicao .= "</tbody>
+				$this->exibicao .= "</tbody>
 			</table>
 		</div>";
-		return $this->$exibicao;
+		return $this->exibicao;
 		
 		
 	}
 }
+
+?>
+</body>
+</html>
