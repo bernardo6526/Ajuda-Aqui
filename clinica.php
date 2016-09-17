@@ -51,8 +51,9 @@
 				<span class="nav navbar-nav navbar-right">
 					<ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php ECHO isset($_SESSION['user']) ? $_SESSION['user']->login." ":"Admin DEV " ?><b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <?php ECHO isset($_SESSION['user']) ? $_SESSION['user']->login:"Admin DEV" ?> <b class="caret"></b></a>
               <ul class="dropdown-menu animated fadeInUp">
+                <li><a href="#" data-url="formularios/editarDados"><span class="glyphicon glyphicon-pencil"></span> Perfil</a></li>
                 <li><a href="index.html" id="sair"><span class="glyphicon glyphicon-off"></span> Sair</a></li>
               </ul>
             </li>
@@ -60,7 +61,7 @@
 				</span>
 			</div>
 		</div>
-	</nav>			
+	</nav>				
 
 	<div class="page-content">
 		<div class="row">
