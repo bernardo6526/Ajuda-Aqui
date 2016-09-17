@@ -53,8 +53,8 @@
 
 <?php 
 
-require_once("../DAL/conexao.php");
-$bd = new banco("ajudaaqui");
+require_once("../BLL/relatoriosBLL.php");
+
 
 
 
@@ -94,6 +94,8 @@ if ($bd->conexaobd)
 						$sql .= "OR clinica.uf LIKE '%$pesq%' OR clinica.cidade LIKE '%$pesq%'";
 						ECHO $sql;
 					 }
+					 
+					ECHO pesqCliente($tabela,$sql);
 			break;
 			case "Assistente":
 				if ($pesq == "")
@@ -120,6 +122,8 @@ if ($bd->conexaobd)
 			break;
     
 		}
+		
+		
 		
 	}
 	else{ECHO "Radiobtn bugou";}
