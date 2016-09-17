@@ -15,7 +15,7 @@
  
 </div>  
 <div class="container">  
-  <form action="" method="get">
+  <form action="" method="post">
 			
 		
 			<div class="row">
@@ -35,7 +35,7 @@
 					
 					<div id="custom-search-input">
 						<div class="input-group col-md-12">
-							<input type="text" class="form-control input-lg" placeholder="Buscar" />
+							<input type="text" class="form-control input-lg" placeholder="Buscar" name="pesq" />
 							<span class="input-group-btn">
 								<input class="btn btn-info btn-lg" type="submit" value="Ir">						
 							</span>
@@ -53,47 +53,72 @@
 
 <?php 
 
-require_once("DAL/conexao.php");
-
-
-function busca_cep($cep) {  
-  $data = @file_get_contents("http://api.postmon.com.br/v1/cep/$cep?format=json");
-
-  $obj = json_decode($data);
-  return $obj;
-}
-
-$tratamento = array(".","-","/",")","("," ");
-
-foreach ($_POST as $key => $value) {
-	$key = $value;
-}
-
-
-
-
-
-
-
-
+require_once("../DAL/conexao.php");
 $bd = new banco("ajudaaqui");
 
 
-if ($bd->conexaobd) {
 
-	$sql = "SELECT assistente.nome,assistente.nota,clinica.nome FROM assistente JOIN clinica WHERE clinica_id = clinica.id";
+
+
+
+
+if ($bd->conexaobd) 
+{
+
+	if (isset ($_POST['tabela']))
+	{
+		$tabela = $_POST['tabela'];
+		if(isset($_POST['pesq']))
+		{
+			$pesq = $_POST['pesq'];
+		}
+		else 
+		{
+			$pesq = "";
+		}
+		
+		switch ($tabela) 
+		{
+			case "Clínica":
+				if ($pesq == "")
+				{
+					$sql = "SELECT clinica.nome,clinica.nota,clinica.uf,clinica.cidade FROM clinica";
+				}
+				else {
+						$sql = "SELECT clinica.nome,clinica.nota,clinica.uf,clinica.cidade FROM clinica WHERE clinica.nome LIKE '%$pesq%' OR clinica.nota = $pesq ";
+						$sql .= "OR clinica.uf LIKE '%pesq%' OR clinica.cidade LIKE '%clinica.cidade%'";
+						ECHO $sql;
+					 }
+			break;
+			case "Assistente":
+				if ($pesq == "")
+				{
+					$sql = "SELECT assistente.nome,assistente.nota,clinica.nome,assistente.uf,assistente.cidade FROM assistente JOIN clinica WHERE clinica_id = clinica.id";
+				}
+				else {
+						$sql = "SELECT cliente.nome,cliente.email,cliente.tipo_deficiencia,cliente.uf,cliente.cidade FROM cliente";
+					 }
+			break;
+			case "Cliente":
+				if ($pesq == "")
+				{
+					$sql = "SELECT cliente.nome,cliente.email,cliente.tipo_deficiencia,cliente.uf,cliente.cidade FROM cliente";
+				}
+				else {
+						$sql = "SELECT cliente.nome,cliente.email,cliente.tipo_deficiencia,cliente.uf,cliente.cidade FROM cliente";
+					 }
+			break;
+    
+		}
+		
+	}
+	
+	
 	
 
-	if (mysqli_query($bd->conexaobd, $sql)) 
-	{
-		
-
-		if (mysqli_query($bd->conexaobd, $sql)) {
-			echo "ok";
-		}
-
-	}
 }
+
+else {ECHO "ERRO CONEXÃO";}
 
 ?>
 
