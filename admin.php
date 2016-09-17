@@ -29,8 +29,16 @@
 			<div id="sidebar-wrapper">
 				<nav id="spy">
 					<ul class="sidebar-nav nav">
-						<li class="sidebar-brand content-center">
-							<img src="img/logo2.png" height="30px" class="" alt="">
+						<li class="sidebar-brand">
+							<span class="fa col-xs-12 fa-anchor solo">
+							<b style="color:#f5f5f5">
+								<?php
+								session_start();
+
+								ECHO isset($_SESSION['user']) ? $_SESSION['user']->login:"NAO";
+								?>
+							</b>
+							</span>
 						</li>
 						<li>
 							<a href="#anch1" data-scroll>
@@ -53,13 +61,6 @@
 							</a>
 						</li>
 					</ul>
-					<span style="top: 340px; left:30px;display: flex;position: absolute;color:#f5f5f5">
-						<?php
-						session_start();
-
-						ECHO isset($_SESSION['user']) ? $_SESSION['user']->login:"NAO";
-						?>
-					</span>
 				</nav>
 			</div>
 
