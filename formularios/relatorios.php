@@ -53,12 +53,10 @@
 
 <?php 
 
-	require_once("../DAL/conexao.php");
-	$bd = new banco("ajudaaqui");
+	require_once("../BLL/relatoriosBLL.php");
+	$rBLL = new relatorioBLL();
 
 
-if ($bd->conexaobd) 
-{
 
 	if (isset ($_POST['tabela']))
 	{
@@ -90,7 +88,7 @@ if ($bd->conexaobd)
 						ECHO $sql;
 					 }
 					 
-					ECHO pesqCliente($tabela,$sql);
+					ECHO $rBLL->pesqCliente($tabela,$sql);
 			break;
 			case "Assistente":
 				if ($pesq == "")
@@ -126,9 +124,9 @@ if ($bd->conexaobd)
 	
 	
 
-}
 
-else {ECHO "ERRO CONEXÃO";}
+
+
 
 ?>
 
