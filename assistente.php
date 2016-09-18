@@ -71,7 +71,7 @@
 						<!-- Main menu -->
 						<li class="current"><a href="#" data-url=""><i class="glyphicon glyphicon-home"></i> Opção Home</a></li>
 						<li><a href="#" data-url="formularios/assistentepedido.php"><i class="glyphicon glyphicon-th-list"></i>Pedido</a></li>
-						<li><a href="#" data-url="formularios/form-teste.html"><i class="glyphicon glyphicon-th-list"></i> Opção Teste 3</a></li>
+						<li><a href="#" data-url="formularios/assistenteclinica.php"><i class="glyphicon glyphicon-th-list"></i>Clínica</a></li>
 					</ul>
 				</div>
 			</div>
