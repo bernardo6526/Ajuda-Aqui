@@ -70,6 +70,7 @@
 					<ul class="nav nav-sidebar">
 						<!-- Main menu -->
 						<li class="current"><a href="#" data-url=""><i class="glyphicon glyphicon-home"></i> Opção Home</a></li>
+						<li><a href="#" data-url="formularios/relatorios.php"><i class="glyphicon glyphicon-th-list"></i> Relatórios</a></li>
 						<li><a href="#" data-url="formularios/form-teste2.html"><i class="glyphicon glyphicon-th-list"></i> Opção Teste 2</a></li>
 						<li><a href="#" data-url="formularios/form-teste.html"><i class="glyphicon glyphicon-th-list"></i> Opção Teste 3</a></li>
 					</ul>

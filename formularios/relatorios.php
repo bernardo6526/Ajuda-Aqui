@@ -7,18 +7,19 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="css/styles.css" rel="stylesheet">
 </head>
 <body style="background-color:rbga(0,0,0,0)">
-
+<div  class="content-box-large ">
 <div class="jumbotron text-center">
   <h1>Relatórios do Sistema</h1>
  
 </div>  
-<div class="container">  
+<div class="container ">  
   <form action="" id="relatorios" method="post">
 			
 		
-			<div class="row">
+			<div class="row ">
 				<div class="col-md-6">
 					<h3>Selecione um parâmetro</h3> 
 					
@@ -162,6 +163,7 @@
 
 
 ?>
+</div>
 
 </body>
 </html>
