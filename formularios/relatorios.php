@@ -8,6 +8,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="css/styles.css" rel="stylesheet">
+  <style rel="stylesheet">
+	.jumbotron{ 
+		background-color: #1985a1;
+		color: #F3F5F5;
+	}
+	.btn-info{ 
+		background-color: #1985a1;
+	}
+	
+  </style>
+  
 </head>
 <body style="background-color:rbga(0,0,0,0)">
 <div  class="content-box-large ">
