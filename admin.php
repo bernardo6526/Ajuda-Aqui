@@ -31,7 +31,7 @@
 			header("Location: index.html");
 		}
 		$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-		var_dump($_SESSION);
+
 	?>
 
 	<nav class="navbar navbar-default navbar-static-top" style="background-color:#fff">
@@ -71,19 +71,13 @@
 						<!-- Main menu -->
 						<li class="current"><a href="#" data-url=""><i class="glyphicon glyphicon-home"></i> Opção Home</a></li>
 						<li><a href="#" data-url="formularios/relatorios.php"><i class="glyphicon glyphicon-th-list"></i> Relatórios</a></li>
-						<li><a href="#" data-url="formularios/form-teste2.html"><i class="glyphicon glyphicon-th-list"></i> Opção Teste 2</a></li>
-						<li><a href="#" data-url="formularios/form-teste.html"><i class="glyphicon glyphicon-th-list"></i> Opção Teste 3</a></li>
+
 					</ul>
 				</div>
 			</div>
 			<div id="conteudo" class="col-md-10">
-				<div class="content-box-header">
-					<h4>Página que muda</h4>
-				</div>
-				<div class="content-box-large box-with-header">
-					<p class="lead">Pellentesque luctus quam quis consequat vulputate. Sed sit amet diam ipsum. Praesent in pellentesque diam, sit amet dignissim erat. Aliquam erat volutpat. Aenean laoreet metus leo, laoreet feugiat enim suscipit quis. Praesent mauris mauris, ornare vitae tincidunt sed, hendrerit eget augue. Nam nec vestibulum nisi, eu dignissim nulla.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laborum, quaerat, officia, ullam tenetur magni accusamus nemo reprehenderit dignissimos qui, quo expedita ipsum alias ut placeat quis natus. In, enim.</p>	
-				</div>	
+				
+				<img src="img/bem-vindo.jpg" alt="" class="img-thumbnail container">
 			</div>
 		</div>
 	</div>
