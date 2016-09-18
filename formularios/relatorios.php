@@ -1,4 +1,5 @@
 ﻿<div  class="content-box-large ">
+<?php var_dump($_POST) ?>
 	<div class="jumbotron text-center" style="background-color: #1985a1;color: #F3F5F5;">
 		<h1>Relatórios do Sistema</h1>
 
@@ -43,9 +44,11 @@
 	<script>
 		$("form#relatorios").on('submit', function() {
 			$rola = $('form :input').serializeArray();
+			$pesq = $('input:text').val();
 
 			$("#conteudo").load("formularios/relatorios.php",{
-				tabela: $rola[0].value
+				tabela: $rola[0].value,
+				pesq: $pesq
 			});
 
 			return false;
