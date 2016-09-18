@@ -8,7 +8,7 @@ $id = $_SESSION['user']->id;
 $local = $_POST['local'];
 $assistente = $_POST['assistente'];
 
-$sql = "INSERT INTO pedido VALUES(null, '$local', now(), true, $id, $assistente)";
+$sql = "INSERT INTO pedido VALUES(null, '$local', now(), 0, $id, $assistente)";
 mysqli_query($bd->conexaobd, $sql);
 echo "foda-se";
 
