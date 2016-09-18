@@ -41,7 +41,8 @@ $(document).ready(function(){
   });
   
   $("#sair").on('click', function() {
-    $.get("../BLL/sessionDestroy.php", function() {
+    
+    $.get('bll/sessionDestroy.php', function(data) {
       window.location.replace('index.html');
     });
   });

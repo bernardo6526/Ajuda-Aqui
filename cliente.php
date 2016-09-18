@@ -15,6 +15,12 @@
 		tr.assistente:hover{
 			cursor: pointer;
 		}
+		.active{
+	    outline: 2px solid #5bc0de;
+		}
+		.pac-container {
+			z-index: 99999;
+		}
 	</style>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -97,7 +103,6 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHFQb-U9gOJUlA6jx_25oCqo8IXc-EXD8&language=pt-br&libraries=places"></script>
-	<script src="js/locationpicker.jquery.min.js"></script>
   <script src="js/jquery.mask.js"></script>
 </body>
 </html>

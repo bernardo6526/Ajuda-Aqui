@@ -26,7 +26,7 @@
 
 
 					
-					<div id="custom-search-input">
+					<div id="custom-search-input form-group">
 						<div class="input-group col-md-12">
 							<input type="text" class="form-control input-lg" placeholder="Buscar"/>
 							<span class="input-group-btn">
@@ -103,8 +103,8 @@
 			case "Assistente":
 			if ($pesq == "")
 			{
-				$sql = "SELECT clinica.nome,assistente.clinica_id,assistente.id,assistente.nome,assistente.nota,assistente.telefone,assistente.email,assistente.nascimento,";
-				$sql .="assistente.tipo,assistente.certificado,assistente.cpf,assistente.rg,assistente.uf,assistente.cidade,assistente.cep,assistente.bairro,assistente.logradouro,assistente.numero,assistente.complemento FROM assistente JOIN clinica WHERE clinica_id = clinica.id";
+				$sql = "SELECT clinica.nome as nomeClinica,assistente.id,assistente.nome,assistente.nota,assistente.telefone,assistente.email,assistente.nascimento,";
+				$sql .="assistente.tipo,assistente.certificado,assistente.cpf,assistente.rg,assistente.uf,assistente.cidade,assistente.cep,assistente.bairro,assistente.logradouro,assistente.numero,assistente.complemento FROM assistente JOIN clinica ON clinica.id = assistente.clinica_id";
 
 			}
 			else {
@@ -116,6 +116,7 @@
 
 			ECHO $rBLL->pesqAssistente($sql);
 			break;
+
 			case "Cliente":
 			if ($pesq == "")
 			{
@@ -135,37 +136,36 @@
 
 			break;
 			case "Pedido":
-				if ($pesq == "")
-				{
-					$sql = "SELECT pedido.id,pedido.local,pedido.data_hora,pedido.status,cliente.nome,assistente.nome,pagamento.valor_bruto,pagamento.valor_liquido,pagamento.imposto
-					FROM pedido JOIN pagamento JOIN assistente JOIN cliente  WHERE cliente.id = pedido.cliente_id AND assistente.id = pedido.assistente_id AND pagamento.pedido_id = pedido.id
-					ORDER BY pedido.id";
-					
-				}
-				else {
-						$sql = "SELECT pedido.id,pedido.local,pedido.data_hora,pedido.status,cliente.nome,assistente.nome,pagamento.valor_bruto,pagamento.valor_liquido,pagamento.imposto
-					FROM pedido JOIN pagamento JOIN assistente JOIN cliente  WHERE cliente.id = pedido.cliente_id AND assistente.id = pedido.assistente_id AND pagamento.pedido_id = pedido.id
-					 AND(pedido.local LIKE '%$pesq%' OR pedido.data_hora LIKE '%pesq%' OR pedido.status = '$pesq' OR cliente.nome LIKE '%$pesq%' OR 
-					assistente.nome LIKE '%$pesq%' OR pagamento.valor_bruto='$pesq' OR pagamento.valor_liquido='$pesq') ORDER BY pedido.id";
-						
-						
-						
+			if ($pesq == "")
+			{
+				$sql = "SELECT pedido.id,pedido.local,pedido.data_hora,pedido.status,cliente.nome as nomeCliente,assistente.nome as nomeAssistente,pagamento.valor_bruto,pagamento.valor_liquido,pagamento.imposto
+								FROM pedido LEFT JOIN pagamento
+								ON pedido.id = pagamento.pedido_id
+								LEFT OUTER JOIN assistente
+								ON assistente.id = pedido.assistente_id
+								LEFT OUTER JOIN cliente
+								ON cliente.id = pedido.cliente_id
+								ORDER BY pedido.id";
 
-					 }
-					 
-					ECHO $rBLL->pesqPedido($sql);
-					
+			}
+			else {
+				$sql = "SELECT pedido.id,pedido.local,pedido.data_hora,pedido.status,cliente.nome as nomeCliente,assistente.nome as nomeAssistente,pagamento.valor_bruto,pagamento.valor_liquido,pagamento.imposto
+								FROM pedido LEFT JOIN pagamento
+								ON pedido.id = pagamento.pedido_id
+								LEFT OUTER JOIN assistente
+								ON assistente.id = pedido.assistente_id
+								LEFT OUTER JOIN cliente
+								ON cliente.id = pedido.cliente_id
+								WHERE (pedido.local LIKE '%$pesq%' OR pedido.data_hora LIKE '%$pesq%' OR pedido.status = '$pesq' OR cliente.nome LIKE '%$pesq%' OR assistente.nome LIKE '%$pesq%' OR pagamento.valor_bruto='$pesq' OR pagamento.valor_liquido='$pesq') ORDER BY pedido.id";
+
+			}
+
+			ECHO $rBLL->pesqPedido($sql);
+
 			break;
 
 
-		}
-		
-		
-		
+		}		
 	}
-
-	
-
-
 	?>
 </div>

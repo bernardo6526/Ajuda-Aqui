@@ -37,7 +37,7 @@ class relatorioBLL
 		$this->exibicao =	"<div class='container'>
 		<h2>Clínica</h2>
 		
-		<table class='table'>
+		<table class='table table-hover'>
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -85,6 +85,7 @@ class relatorioBLL
 	{
 		
 		$this->sql = $sql;
+		print_r($this->sql);
 		$this->result=mysqli_query($this->bd->conexaobd,$this->sql);
 		$this->qtdeLinhas = mysqli_num_rows($this->result);
 		
@@ -92,7 +93,7 @@ class relatorioBLL
 		$this->exibicao =	"<div class='container'>
 		<h2>Assistente</h2>
 		
-		<table class='table'>
+		<table class='table table-hover'>
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -120,6 +121,8 @@ class relatorioBLL
 				for($x=0; $x < $this->qtdeLinhas; $x++)
 				{
 					$this->row=mysqli_fetch_assoc($this->result);
+					var_dump($this->row);
+
 					$this->exibicao .= "<tr><td>".$this->row["id"]."</td>";
 					$this->exibicao .= "<td>".$this->row["nome"]."</td>";
 					$this->exibicao .= "<td>".$this->row["nota"]."</td>";
@@ -128,7 +131,7 @@ class relatorioBLL
 					$this->exibicao .= "<td>".$this->row["nascimento"]."</td>";
 					$this->exibicao .= "<td>".$this->row["tipo"]."</td>";
 					$this->exibicao .= "<td>".$this->row["certificado"]."</td>";
-					$this->exibicao .= "<td>".$this->fk_join("clinica","nome",$this->row["clinica_id"])."</td>";
+					$this->exibicao .= "<td>".$this->row['nomeClinica']."</td>";
 					$this->exibicao .= "<td>".$this->row["cpf"]."</td>";
 					$this->exibicao .= "<td>".$this->row["rg"]."</td>";
 					$this->exibicao .= "<td>".$this->row["uf"]."</td>";
@@ -159,7 +162,7 @@ class relatorioBLL
 		$this->exibicao =	"<div class='container'>
 		<h2>Cliente</h2>
 		
-		<table class='table'>
+		<table class='table table-hover'>
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -220,7 +223,7 @@ class relatorioBLL
 		$this->exibicao =	"<div class='container'>
 		<h2>Pedido</h2>
 		
-		<table class='table'>
+		<table class='table table-hover'>
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -241,8 +244,8 @@ class relatorioBLL
 				{
 					$this->row=mysqli_fetch_assoc($this->result);
 					$this->exibicao .= "<tr><td>".$this->row["id"]."</td>";
-					$this->exibicao .= "<td>".$this->fk_join("cliente","nome",$this->row["id"])."</td>";
-					$this->exibicao .= "<td>".$this->fk_join("assistente","nome",$this->row["id"])."</td>";
+					$this->exibicao .= "<td>".$this->row['nomeCliente']."</td>";
+					$this->exibicao .= "<td>".$this->row['nomeAssistente']."</td>";
 					$this->exibicao .= "<td>".$this->row["local"]."</td>";
 					$this->exibicao .= "<td>".$this->row["data_hora"]."</td>";
 					$this->exibicao .= "<td>".$this->pedidostatus($this->row["status"])."</td>";
@@ -260,7 +263,9 @@ class relatorioBLL
 		
 		
 	}
-							
+					
+		// Trabalho Desnecessauro Abaixo
+
 		public function fk_join($tabela,$campo,$id)
 		{
 			$this->sqlfk = "SELECT $tabela.$campo FROM $tabela WHERE $tabela.id = $id";
