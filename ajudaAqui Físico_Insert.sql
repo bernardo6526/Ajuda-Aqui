@@ -183,13 +183,13 @@ INSERT INTO Cliente(id, nome, cpf, email, nascimento, rg, telefone, tipo_deficie
 VALUES(NULL, 'Marcello Lessa', 55347612944, 'MLessaAB@gmail.com', '1985-01-29', 83463680, 990012468, 'Deficiente Visual', 'Belo Horizonte', 'Ipanema', 'Rua Poranga', 'VAZIO', 108, 'MG', 38190011);
 
 INSERT INTO Pedido(id, local, data_hora,status, cliente_id, Assistente_id)
-VALUES(NULL, 'Avenida do Contorno', '2016-06-25 19:38:00',true,1,1);
+VALUES(NULL, 'Avenida do Contorno', '2016-06-25 19:38:00',false,1,1);
 INSERT INTO Pedido(id, local, data_hora,status,cliente_id, Assistente_id)
-VALUES(NULL, 'Rua Portugal', '2016-05-30 14:54:00',true,2,2);
+VALUES(NULL, 'Rua Portugal', '2016-05-30 14:54:00',false,2,2);
 INSERT INTO Pedido(id, local, data_hora,status,cliente_id, Assistente_id)
-VALUES(NULL, 'Rua Dido', '2016-05-25 10:34:00',true,3,3);
+VALUES(NULL, 'Rua Dido', '2016-05-25 10:34:00',false,3,3);
 INSERT INTO Pedido(id, local, data_hora,status,cliente_id, Assistente_id)
-VALUES(NULL, 'Avenida Engenheiros', '2016-03-12 08:16:00',true,4,4);
+VALUES(NULL, 'Avenida Engenheiros', '2016-03-12 08:16:00',false,4,4);
 
 INSERT INTO Feedback_cliente(cliente_id, nota)
 VALUES(1,8.5);
