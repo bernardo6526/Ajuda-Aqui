@@ -157,8 +157,14 @@ INSERT INTO Clinica(id, nome,cnpj, telefone, cidade, Bairro, Logradouro, complem
 VALUES(NULL, 'Clínica de Psicologia Infantil – CPI', 19884295000134 , 32923484, 'Belo Horizonte', ' Barro Preto', 'Rua Guajajaras', 'VAZIO', 1607, 'MG', 30180101 , 9.0);
 
 
--- INSERT INTO Assistente(id, nome, certificado, cpf, rg, tipo, Clinica_id, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
--- VALUES(NULL, 'Alberto Fonseca Araujo', 'ABCD12345678', 12345678911, 12345678, 'A. Visual', 1, 'Belo Horizonte', 'Carlos Prates', 'Rua Corumbá', 'VAZIO', 224, 'MG', 30710280, 10.0);
+INSERT INTO Assistente(id, nome, certificado, cpf,email,nascimento,rg,telefone,tipo, Clinica_id, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
+VALUES(NULL, 'Alberto Fonseca Araujo', 'ABCD12345678', 12345678,'albertin@gmail.com','1996/05/05',12345678,3199434341,'A. Visual', 1, 'Belo Horizonte', 'Carlos Prates', 'Rua Corumbá', 'VAZIO', 224, 'MG', 30710280, 10.0);
+INSERT INTO Assistente(id, nome, certificado, cpf,email,nascimento,rg,telefone,tipo, Clinica_id, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
+VALUES(NULL, 'Juliana Campos', 'CGYA1343678', 12345678,'jucampos@gmail.com','1988/04/01',12345678,3199434341,'A. Físico', 1, 'Belo Horizonte', 'Rua Juramento', 'Rua Corumbá', 'VAZIO', 1464, 'MG', 30710280, 7.5);
+INSERT INTO Assistente(id, nome, certificado, cpf,email,nascimento,rg,telefone,tipo, Clinica_id, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
+VALUES(NULL, 'Mauro Fernandes Pinto', 'GRG16545678', 12345678,'mauro@gmail.com','1985/11/15',12345678,3199434341,'A. Físico', 1, 'Belo Horizonte', 'Santa Efigênia', 'Avenida do Contorno', 'VAZIO', 2655, 'MG', 30710280, 8.5);
+INSERT INTO Assistente(id, nome, certificado, cpf,email,nascimento,rg,telefone,tipo, Clinica_id, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
+VALUES(NULL, 'Fátima Veras de Souza', 'J54451GF45678', 12345678,'neafatimabernardes@gmail.com','1993/05/05',12345678,3199434341,'A. Visual', 1, 'Belo Horizonte', 'Barro Preto', 'Rua Guajajaras', 'VAZIO', 1607, 'MG', 30180101, 9.0);
 -- INSERT INTO Assistente(id, nome, certificado, cpf, rg, tipo, Clinica_id, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
 -- VALUES(NULL, 'Juliana Campos', 'BCDA87654321', 24681230655, 94545670, 'A. Visual', 2, 'Belo Horizonte', 'Saudade', 'Rua Juramento', 'VAZIO', 1464, 'MG', 30285048, 7.5);
 -- INSERT INTO Assistente(id, nome, certificado, cpf, rg, tipo, Clinica_id, cidade, Bairro, Logradouro, complemento, numero, uf, cep, nota)
@@ -176,14 +182,14 @@ VALUES(NULL, 'Mariana Ferreira', 23970058729, 'mari_gatinha22@gmail.com', '2000-
 INSERT INTO Cliente(id, nome, cpf, email, nascimento, rg, telefone, tipo_deficiencia, cidade, Bairro, Logradouro, complemento, numero, uf, cep)
 VALUES(NULL, 'Marcello Lessa', 55347612944, 'MLessaAB@gmail.com', '1985-01-29', 83463680, 990012468, 'Deficiente Visual', 'Belo Horizonte', 'Ipanema', 'Rua Poranga', 'VAZIO', 108, 'MG', 38190011);
 
-INSERT INTO Pedido(id, local, data_hora, cliente_id, Assistente_id)
-VALUES(NULL, 'Avenida do Contorno', '2016-06-25 19:38:00', 1,1);
-INSERT INTO Pedido(id, local, data_hora, cliente_id, Assistente_id)
-VALUES(NULL, 'Rua Portugal', '2016-05-30 14:54:00', 2,2);
-INSERT INTO Pedido(id, local, data_hora, cliente_id, Assistente_id)
-VALUES(NULL, 'Rua Dido', '2016-05-25 10:34:00', 3,3);
-INSERT INTO Pedido(id, local, data_hora, cliente_id, Assistente_id)
-VALUES(NULL, 'Avenida Engenheiros', '2016-03-12 08:16:00', 4,4);
+INSERT INTO Pedido(id, local, data_hora,status, cliente_id, Assistente_id)
+VALUES(NULL, 'Avenida do Contorno', '2016-06-25 19:38:00',true,1,1);
+INSERT INTO Pedido(id, local, data_hora,status,cliente_id, Assistente_id)
+VALUES(NULL, 'Rua Portugal', '2016-05-30 14:54:00',true,2,2);
+INSERT INTO Pedido(id, local, data_hora,status,cliente_id, Assistente_id)
+VALUES(NULL, 'Rua Dido', '2016-05-25 10:34:00',true,3,3);
+INSERT INTO Pedido(id, local, data_hora,status,cliente_id, Assistente_id)
+VALUES(NULL, 'Avenida Engenheiros', '2016-03-12 08:16:00',true,4,4);
 
 INSERT INTO Feedback_cliente(cliente_id, nota)
 VALUES(1,8.5);
