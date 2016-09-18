@@ -37,6 +37,7 @@ CREATE TABLE Assistente(
   tipo VARCHAR(45) NOT NULL, /* Não confundir esse tipo do capeta com a informação se o cara é freelancer ou não Esse tipo se refere a especialização dele, ex: Fisioterapeuta ou A Físico */
   Clinica_id INT UNSIGNED NULL, 
   nota INT NULL,
+  status BOOLEAN DEFAULT false,
   PRIMARY KEY (id),
   FOREIGN KEY (Clinica_id) REFERENCES Clinica(id)
 );
