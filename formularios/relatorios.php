@@ -15,7 +15,7 @@
  
 </div>  
 <div class="container">  
-  <form action="" method="post">
+  <form action="" id="relatorios" method="post">
 			
 		
 			<div class="row">
@@ -23,13 +23,13 @@
 					<h3>Selecione um parâmetro</h3> 
 					
 					<label class="radio-inline">
-						<input type="radio" name="tabela" value="Clinica">Clínica
+						<input type="radio" name="tabela" id="tabela" value="Clinica" >Clínica
 					</label>
 					<label class="radio-inline">
-						<input type="radio" name="tabela" value="Assistente">Assistente
+						<input type="radio" name="tabela" id="tabela" value="Assistente" >Assistente
 					</label>
 					<label class="radio-inline">
-						<input type="radio" name="tabela" value="Cliente">Cliente
+						<input type="radio" name="tabela" id="tabela" value="Cliente" >Cliente
 					</label>		
 		
 					
@@ -45,9 +45,27 @@
 			</div>		
   </form>
 </div>
+<!-- SCRIPTS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/jquery.mask.js"></script>
+	<script src="js/jquery.validate.js"></script>
+	<script>
+		
+		$("#relatorios").validate({
+			rules: {
+			
+				tabela: "required"
+			},
+			messages: {
+			
+				tabela: "Selecione uma das Opções"
+			}
 
+		});
+	</script>
 
-
+<!-- /SCRIPTS -->
 
 
 
@@ -61,7 +79,7 @@
 	if (isset ($_POST['tabela']))
 	{
 		$tabela = $_POST['tabela'];
-		ECHO $tabela;
+
 		
 		
 		if(isset($_POST['pesq']))
@@ -86,7 +104,7 @@
 						$sql = "SELECT clinica.id,clinica.nome,clinica.nota,clinica.telefone,clinica.cnpj,clinica.uf,clinica.cidade,clinica.cep,clinica.bairro,clinica.logradouro,clinica.numero,clinica.complemento FROM clinica  ";
 						$sql .= "WHERE clinica.id LIKE '%$pesq%' OR clinica.nome LIKE '%$pesq%' OR clinica.nota = '$pesq' OR clinica.telefone = '$pesq' OR clinica.cnpj LIKE '%$pesq%' OR clinica.uf LIKE '%$pesq%' OR clinica.cidade LIKE '%$pesq%'";
 						$sql .= "OR clinica.cep LIKE '%$pesq%' OR clinica.bairro LIKE '%$pesq%' OR clinica.logradouro = '$pesq' OR clinica.numero = '$pesq' OR clinica.complemento LIKE '%$pesq%' ORDER BY clinica.id";
-						ECHO $sql;
+
 					 }
 					 
 					ECHO $rBLL->pesqClinica($sql);
@@ -97,13 +115,13 @@
 				{
 					$sql = "SELECT clinica.nome,assistente.clinica_id,assistente.id,assistente.nome,assistente.nota,assistente.telefone,assistente.email,assistente.nascimento,";
 					$sql .="assistente.tipo,assistente.certificado,assistente.cpf,assistente.rg,assistente.uf,assistente.cidade,assistente.cep,assistente.bairro,assistente.logradouro,assistente.numero,assistente.complemento FROM assistente JOIN clinica WHERE clinica_id = clinica.id";
-					ECHO $sql;
+
 				}
 				else {
 						$sql = "SELECT clinica.nome,assistente.nome,assistente.id,assistente.nota,assistente.nascimento,assistente.cpf,assistente.rg,assistente.cep,assistente.bairro,assistente.logradouro,assistente.complemento,assistente.numero,assistente.telefone,assistente.email,assistente.tipo,assistente.certificado,assistente.clinica_id,assistente.uf,assistente.cidade FROM assistente JOIN clinica";
 						$sql .= " WHERE clinica_id = clinica.id AND (assistente.nome LIKE '%$pesq%' OR assistente.nota = '$pesq' OR assistente.telefone LIKE '%$pesq%' OR assistente.email LIKE '%$pesq%' OR assistente.tipo LIKE '%$pesq%' OR assistente.certificado LIKE '%$pesq%' OR clinica.nome LIKE '%$pesq%' OR assistente.uf LIKE '%$pesq%' ";
 						$sql .= "OR assistente.cidade LIKE '%$pesq%')";
-						ECHO $sql;
+
 					 }
 					 
 					 ECHO $rBLL->pesqAssistente($sql);
@@ -121,7 +139,7 @@
 						$sql .= "OR cliente.cpf LIKE '%$pesq%' OR cliente.rg LIKE '%$pesq%' OR cliente.uf LIKE '%$pesq' OR cliente.cidade LIKE '%$pesq%'";
 						$sql .= "OR cliente.cep LIKE '%$pesq%' OR cliente.bairro LIKE '%$pesq%' OR cliente.logradouro LIKE '%$pesq' OR cliente.numero LIKE '%$pesq%'";
 						$sql .= "OR cliente.complemento LIKE '%$pesq%' ORDER BY cliente.id ";
-						ECHO $sql;
+
 					 }
 				 ECHO $rBLL->pesqCliente($sql);	 
 
@@ -132,13 +150,8 @@
 		
 		
 	}
-	else{ECHO "Radiobtn bugou";}
-	
-	
-	
 
-
-
+	
 
 
 ?>
