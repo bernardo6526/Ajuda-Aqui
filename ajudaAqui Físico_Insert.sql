@@ -102,46 +102,46 @@ CREATE TABLE Pagamento (
   );
   
   CREATE TABLE Tipo_Usuario(
-	id INT UNSIGNED NOT NULL,
-	nome varchar(50) NOT NULL,
-	PRIMARY KEY(id)
+  id INT UNSIGNED NOT NULL,
+  nome varchar(50) NOT NULL,
+  PRIMARY KEY(id)
   );
   
   CREATE TABLE Usuario 
   (
-	id INT AUTO_INCREMENT NOT NULL,
-	login VARCHAR(40) NOT NULL,
-	senha VARCHAR(40) NOT NULL,
-	tipo INT UNSIGNED NOT NULL,
-	fk INT NOT NULL, -- ASSOCIAÇÃO POLIFÓRMICA... POR FAVOR LEIA OS COMENTÁRIOS ABAIXO
-	PRIMARY KEY (id),
-	FOREIGN KEY(tipo)
-		REFERENCES Tipo_Usuario(id)
+  id INT AUTO_INCREMENT NOT NULL,
+  login VARCHAR(40) NOT NULL,
+  senha VARCHAR(40) NOT NULL,
+  tipo INT UNSIGNED NOT NULL,
+  fk INT NOT NULL, -- ASSOCIAÇÃO POLIFÓRMICA... POR FAVOR LEIA OS COMENTÁRIOS ABAIXO
+  PRIMARY KEY (id),
+  FOREIGN KEY(tipo)
+    REFERENCES Tipo_Usuario(id)
   );
   
   /*
-	Bem galerinha...
-	Temos um problema nessa tabela. No nosso código do PHP seria "Impossivel" usar uma tabela de login para cada tipo de usuário(cliente,assistente,gerente,admin),
-	para evitar toda essa dor de cabeça o nosso grande Messias Bernardo criou essa solução na cagada, que mais tarde quando eu fui verificar, era a única solução possivel
-	O QUE É ESSA SOLUÇÃO?? voces me perguntam, Uma foreinkey do gang bang, praticamente...
-	Ela Encaixa em todo mundo e geral usa ela.
-	
-	MAS GANG-BANG NÃO É BAGUNÇA
-	
-	para usar a tabela corretamente vamos seguir o seguinte esquema:
-	
-	na coluna de TIPO Faremos uma associação tipo assim:
-	
-	1 - "Gerente da Clínica"
-	2 - "Assistente"
-	3 - "Cliente"
-	
-	" — Mas o que é a coluna FK????"
-	.....
-	
-	não sei explicar
-	
-	ok. to muito loco
+  Bem galerinha...
+  Temos um problema nessa tabela. No nosso código do PHP seria "Impossivel" usar uma tabela de login para cada tipo de usuário(cliente,assistente,gerente,admin),
+  para evitar toda essa dor de cabeça o nosso grande Messias Bernardo criou essa solução na cagada, que mais tarde quando eu fui verificar, era a única solução possivel
+  O QUE É ESSA SOLUÇÃO?? voces me perguntam, Uma foreinkey do gang bang, praticamente...
+  Ela Encaixa em todo mundo e geral usa ela.
+  
+  MAS GANG-BANG NÃO É BAGUNÇA
+  
+  para usar a tabela corretamente vamos seguir o seguinte esquema:
+  
+  na coluna de TIPO Faremos uma associação tipo assim:
+  
+  1 - "Gerente da Clínica"
+  2 - "Assistente"
+  3 - "Cliente"
+  
+  " — Mas o que é a coluna FK????"
+  .....
+  
+  não sei explicar
+  
+  ok. to muito loco
   
   */
   
