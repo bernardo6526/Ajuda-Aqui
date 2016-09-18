@@ -8,6 +8,14 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!-- styles -->
 	<link href="css/styles.css" rel="stylesheet">
+	<style>
+		.active {
+	    border: 1px solid #ccc;
+		}
+		tr.assistente:hover{
+			cursor: pointer;
+		}
+	</style>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,7 +30,6 @@
 	<!-- TIMEOUT -->
 	<?php
 		session_start();
-		
 		if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) 
 		{
 			// last request was more than 30 minutes ago
@@ -89,7 +96,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="js/custom.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHFQb-U9gOJUlA6jx_25oCqo8IXc-EXD8&language=pt-br&libraries=places&sensor=false"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHFQb-U9gOJUlA6jx_25oCqo8IXc-EXD8&language=pt-br&libraries=places"></script>
 	<script src="js/locationpicker.jquery.min.js"></script>
   <script src="js/jquery.mask.js"></script>
 </body>

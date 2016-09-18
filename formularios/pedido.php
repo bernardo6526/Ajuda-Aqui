@@ -3,11 +3,11 @@
 		<h4>Escolha Sua Localização</h4>
 	</div>
 	<div class="content-box-large box-with-header">
-		<form>
+		<form id="pedido">
 			<div class="form-group">
 				<div class="input-group">
-					<div class="input-group-addon"><button data-target="#us6-dialog" data-toggle="modal" class="btn-link" style="text-decoration:none">Procurar</button></div>
-					<input type="text" placeholder="Localização" name="localizacao" id="localizacao" required class="readonly form-control">
+					<div class="input-group-addon"><button data-target="#us6-dialog" type="button" data-toggle="modal" class="btn-link" style="text-decoration:none">Procurar</button></div>
+					<input type="text" placeholder="Localização" name="local" id="localizacao" class="readonly form-control">
 				</div>
 			</div>
 			<p class="lead">Faça Um pedido</p>
@@ -41,9 +41,9 @@
 					?>
 				</tbody>
 			</table>
-			<input id="selecionado" type="text" required class="readonly form-control" placeholder="Assistente Selecionado">
+			<input id="selecionado" type="text" style="display:none" required class="readonly form-control" placeholder="Assistente Selecionado">
 			<div class="">	
-				<input type="submit" value="Pedir!" class="btn btn-primary col-xs-12" onclick="alert('AINDA NÃO IMPLEMENTADO')" style="margin-top:30px">
+				<input type="submit" value="Pedir!" class="btn btn-primary col-xs-12" style="margin-top:30px">
 			</div>
 			<p class="text-right">Ajuda Aqui!</p>
 		</form>
@@ -60,7 +60,7 @@
 								<label class="col-sm-2 control-label">Endereço:</label>
 
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="us3-address" />
+									<input type="text" name="endereco" class="form-control" id="us3-address" />
 								</div>
 							</div>
 							<div id="us3" style="width: 100%; height: 400px;"></div>
@@ -114,6 +114,24 @@
 			$endereco = $('#us3-address').val();
 			$('#us6-dialog').modal('toggle');
 			$('#localizacao').val($endereco);
+		});
+
+		$("form#pedido").on('submit', function(event) {
+			$.ajax({
+				url: "BLL/cadastroPedido.php",
+				data: {
+					local: $("input#localizacao").val(),
+					assistente: $('tr.active td.id').text()
+				},
+				method: "POST",
+				success: function(data) {
+					alert('Pedido Feito, Aguarde por uma Resposta');
+					window.location.replace('cliente.php');
+				},
+				error: function() {
+					alert('noão');
+				}
+			})
 		});
 
 	})
