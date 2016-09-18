@@ -245,10 +245,10 @@ class relatorioBLL
 					$this->exibicao .= "<td>".$this->fk_join("assistente","nome",$this->row["id"])."</td>";
 					$this->exibicao .= "<td>".$this->row["local"]."</td>";
 					$this->exibicao .= "<td>".$this->row["data_hora"]."</td>";
-					$this->exibicao .= "<td>".$this->row["status"]."</td>";
-					$this->exibicao .= "<td>".$this->fk_pagamento("pagamento","valor_bruto",$this->row["Assistente_id"])."</td>";
-					$this->exibicao .= "<td>".$this->fk_pagamento("pagamento","valor_liquido",$this->row["Assistente_id"])."</td>";
-					$this->exibicao .= "<td>".$this->fk_pagamento("pagamento","imposto",$this->row["Assistente_id"])."</td></tr>";
+					$this->exibicao .= "<td>".$this->pedidostatus($this->row["status"])."</td>";
+					$this->exibicao .= "<td>".$this->fk_pagamento("pagamento","valor_bruto",$this->row["id"])."</td>";
+					$this->exibicao .= "<td>".$this->fk_pagamento("pagamento","valor_liquido",$this->row["id"])."</td>";
+					$this->exibicao .= "<td>".$this->fk_pagamento("pagamento","imposto",$this->row["id"])."</td></tr>";
 
 					
 				}
@@ -280,6 +280,21 @@ class relatorioBLL
 			
 			return utf8_encode($this->exibicaofk);
 		}
+	
+	public function pedidostatus($status)
+	{
+		if($status)
+		{
+			$this->exibicaofk = "Pendente";
+		}
+		
+		else 
+		{
+			$this->exibicaofk = "Realizado";
+		}
+		
+		return $this->exibicaofk;
+	}
 		
 		
 	
