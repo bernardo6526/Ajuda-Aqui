@@ -23,7 +23,7 @@
 					<h3>Selecione um parâmetro</h3> 
 					
 					<label class="radio-inline">
-						<input type="radio" name="tabela" id="tabela" value="Clinica" >Clínica
+						<input type="radio" name="tabela" id="tabela" value="Clinica" required>Clínica
 					</label>
 					<label class="radio-inline">
 						<input type="radio" name="tabela" id="tabela" value="Assistente" >Assistente
@@ -50,20 +50,7 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="js/jquery.mask.js"></script>
 	<script src="js/jquery.validate.js"></script>
-	<script>
-		
-		$("#relatorios").validate({
-			rules: {
-			
-				tabela: "required"
-			},
-			messages: {
-			
-				tabela: "Selecione uma das Opções"
-			}
-
-		});
-	</script>
+	
 
 <!-- /SCRIPTS -->
 
