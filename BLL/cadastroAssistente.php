@@ -44,7 +44,7 @@ if ($bd->conexaobd) {
 
 	$sql = "INSERT INTO assistente VALUES(NULL, '$nome $sobrenome', '$cpf', '$email', '$nascimento',";
 	$sql .= " '$rg', '$telefone','$endereco->cidade', '$endereco->bairro', '$endereco->logradouro',";
-	$sql .= " '$complemento', '$numero', '$endereco->estado',$cep,$nmroprof,'$tipo',1,null)";
+	$sql .= " '$complemento', '$numero', '$endereco->estado',$cep,$nmroprof,'$tipo',1,null,false)";
 	
 	if (mysqli_query($bd->conexaobd, $sql)) 
 	{
