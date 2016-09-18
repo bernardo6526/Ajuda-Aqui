@@ -30,7 +30,11 @@
 					</label>
 					<label class="radio-inline">
 						<input type="radio" name="tabela" id="tabela" value="Cliente" >Cliente
-					</label>		
+					</label>	
+					<label class="radio-inline">
+						<input type="radio" name="tabela" id="tabela" value="Pedido" >Pedido	
+					</label>
+
 		
 					
 					<div id="custom-search-input">
@@ -131,6 +135,22 @@
 				 ECHO $rBLL->pesqCliente($sql);	 
 
 			break;
+			case "Pedido":
+				if ($pesq == "")
+				{
+					$sql = "SELECT pedido.id,pedido.local,pedido.data_hora,pedido_status,cliente.nome,assistente.nome,pagamento.valor_bruto,pagamento.valor_liquido,pagamento.impostos FROM pedido JOIN pagamento JOIN assistente JOIN cliente ORDER BY pedido.id";
+				}
+				else {
+						$sql = "SELECT clinica.id,clinica.nome,clinica.nota,clinica.telefone,clinica.cnpj,clinica.uf,clinica.cidade,clinica.cep,clinica.bairro,clinica.logradouro,clinica.numero,clinica.complemento FROM clinica  ";
+						$sql .= "WHERE clinica.id LIKE '%$pesq%' OR clinica.nome LIKE '%$pesq%' OR clinica.nota = '$pesq' OR clinica.telefone = '$pesq' OR clinica.cnpj LIKE '%$pesq%' OR clinica.uf LIKE '%$pesq%' OR clinica.cidade LIKE '%$pesq%'";
+						$sql .= "OR clinica.cep LIKE '%$pesq%' OR clinica.bairro LIKE '%$pesq%' OR clinica.logradouro = '$pesq' OR clinica.numero = '$pesq' OR clinica.complemento LIKE '%$pesq%' ORDER BY clinica.id";
+
+					 }
+					 
+					ECHO $rBLL->pesqPedido($sql);
+					
+			break;
+
     
 		}
 		

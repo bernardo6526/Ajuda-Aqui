@@ -208,6 +208,58 @@ class relatorioBLL
 		
 		
 	}
+	
+			public function pesqPedido($sql)
+	{
+		
+		$this->sql = $sql;
+		$this->result=mysqli_query($this->bd->conexaobd,$this->sql);
+		$this->qtdeLinhas = mysqli_num_rows($this->result);
+		
+		
+		$this->exibicao =	"<div class='container'>
+		<h2>Pedido</h2>
+		
+		<table class='table'>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nome Cliente</th>
+					<th>Nome Assistente</th>
+					<th>Local</th>
+					<th>Data e Hora</th>
+					<th>Status</th>
+					<th>Valor Bruto</th>
+					<th>Valor Líquido</th>
+					<th>Taxa</th>
+
+				</tr>
+			</thead>
+			<tbody>";
+
+				for($x=0; $x < $this->qtdeLinhas; $x++)
+				{
+					$this->row=mysqli_fetch_assoc($this->result);
+					$this->exibicao .= "<tr><td>".$this->row["id"]."</td>";
+					$this->exibicao .= "<td>".$this->fk_join("cliente","nome",$this->row["id"])."</td>";
+					$this->exibicao .= "<td>".$this->fk_join("assistente","nome",$this->row["id"])."</td>";
+					$this->exibicao .= "<td>".$this->row["local"]."</td>";
+					$this->exibicao .= "<td>".$this->row["data_hora"]."</td>";
+					$this->exibicao .= "<td>".$this->row["status"]."</td>";
+					$this->exibicao .= "<td>".$this->fk_pagamento("pagamento","valor_bruto",$this->row["Assistente_id"])."</td>";
+					$this->exibicao .= "<td>".$this->fk_pagamento("pagamento","valor_liquido",$this->row["Assistente_id"])."</td>";
+					$this->exibicao .= "<td>".$this->fk_pagamento("pagamento","imposto",$this->row["Assistente_id"])."</td></tr>";
+
+					
+				}
+				
+				$this->exibicao .= "</tbody>
+			</table>
+		</div>";
+		return utf8_encode($this->exibicao);
+		
+		
+	}
 							
 		public function fk_join($tabela,$campo,$id)
 		{
@@ -218,6 +270,18 @@ class relatorioBLL
 			
 			return utf8_encode($this->exibicaofk);
 		}
+			
+	public function fk_pagamento($tabela,$campo,$id)
+		{
+			$this->sqlfk = "SELECT $tabela.$campo FROM $tabela WHERE $tabela.Pedido_id = $id";
+			$this->resultfk=mysqli_query($this->bd->conexaobd,$this->sqlfk);
+			$this->rowfk=mysqli_fetch_assoc($this->resultfk);
+			$this->exibicaofk = $this->rowfk["$campo"];
+			
+			return utf8_encode($this->exibicaofk);
+		}
+		
+		
 	
 }
 
