@@ -36,7 +36,7 @@
 							$table .= "<td class='telefone'>$linha->telefone</td>";
 							$table .= "<td class='nota'>$linha->nota</td></tr>";
 
-							echo $table;
+							echo utf8_encode($table);
 						}
 					?>
 				</tbody>
