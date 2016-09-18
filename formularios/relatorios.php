@@ -80,11 +80,12 @@
 			case "Clinica":
 				if ($pesq == "")
 				{
-					$sql = "SELECT clinica.nome,clinica.nota,clinica.telefone,clinica.uf,clinica.cidade FROM clinica";
+					$sql = "SELECT clinica.id,clinica.nome,clinica.nota,clinica.telefone,clinica.cnpj,clinica.uf,clinica.cidade,clinica.cep,clinica.bairro,clinica.logradouro,clinica.numero,clinica.complemento FROM clinica ORDER BY clinica.id";
 				}
 				else {
-						$sql = "SELECT clinica.nome,clinica.nota,clinica.telefone,clinica.uf,clinica.cidade FROM clinica WHERE clinica.nome LIKE '%$pesq%' OR clinica.nota = '$pesq' OR clinica.telefone = '$pesq' ";
-						$sql .= "OR clinica.uf LIKE '%$pesq%' OR clinica.cidade LIKE '%$pesq%'";
+						$sql = "SELECT clinica.id,clinica.nome,clinica.nota,clinica.telefone,clinica.cnpj,clinica.uf,clinica.cidade,clinica.cep,clinica.bairro,clinica.logradouro,clinica.numero,clinica.complemento FROM clinica  ";
+						$sql .= "WHERE clinica.id LIKE '%$pesq%' OR clinica.nome LIKE '%$pesq%' OR clinica.nota = '$pesq' OR clinica.telefone = '$pesq' OR clinica.cnpj LIKE '%$pesq%' OR clinica.uf LIKE '%$pesq%' OR clinica.cidade LIKE '%$pesq%'";
+						$sql .= "OR clinica.cep LIKE '%$pesq%' OR clinica.bairro LIKE '%$pesq%' OR clinica.logradouro = '$pesq' OR clinica.numero = '$pesq' OR clinica.complemento LIKE '%$pesq%' ORDER BY clinica.id";
 						ECHO $sql;
 					 }
 					 
@@ -94,7 +95,9 @@
 			case "Assistente":
 				if ($pesq == "")
 				{
-					$sql = "SELECT assistente.nome,assistente.nota,assistente.telefone,assistente.email,assistente.tipo,assistente.certificado,assistente.clinica_id,assistente.uf,assistente.cidade FROM assistente";
+					$sql = "SELECT clinica.nome,assistente.id,assistente.nome,assistente.nota,assistente.telefone,assistente.email,assistente.nascimento,";
+					$sql .="assistente.tipo,assistente.certificado,assistente.cpf,assistente.rg,assistente.uf,assistente.cidade,assistente.cep,assistente.bairro,assistente.logradouro,assistente.numero,assistente.complemento FROM assistente JOIN clinica ";
+					ECHO $sql;
 				}
 				else {
 						$sql = "SELECT clinica.nome,assistente.nome,assistente.nota,assistente.telefone,assistente.email,assistente.tipo,assistente.certificado,assistente.clinica_id,assistente.uf,assistente.cidade FROM assistente JOIN clinica";
@@ -109,7 +112,7 @@
 				if ($pesq == "")
 				{
 					$sql = "SELECT cliente.id,cliente.nome,cliente.telefone,cliente.email,cliente.nascimento,cliente.tipo_deficiencia,";
-					$sql .=" cliente.cpf,cliente.rg,cliente.uf,cliente.cidade,cliente.cep,cliente.bairro,cliente.logradouro,cliente.numero,cliente.complemento FROM cliente";
+					$sql .=" cliente.cpf,cliente.rg,cliente.uf,cliente.cidade,cliente.cep,cliente.bairro,cliente.logradouro,cliente.numero,cliente.complemento FROM cliente ORDER BY clinica.id";
 				}
 				else {
 						$sql = "SELECT cliente.id,cliente.nome,cliente.telefone,cliente.email,cliente.nascimento,cliente.tipo_deficiencia,cliente.cpf,cliente.rg,cliente.uf,";
@@ -117,7 +120,7 @@
 						$sql .= "OR cliente.telefone LIKE '%$pesq%' OR cliente.email LIKE '%$pesq%' OR cliente.nascimento LIKE '%$pesq' OR cliente.tipo_deficiencia LIKE '%$pesq%'";
 						$sql .= "OR cliente.cpf LIKE '%$pesq%' OR cliente.rg LIKE '%$pesq%' OR cliente.uf LIKE '%$pesq' OR cliente.cidade LIKE '%$pesq%'";
 						$sql .= "OR cliente.cep LIKE '%$pesq%' OR cliente.bairro LIKE '%$pesq%' OR cliente.logradouro LIKE '%$pesq' OR cliente.numero LIKE '%$pesq%'";
-						$sql .= "OR cliente.complemento LIKE '%$pesq%' ";
+						$sql .= "OR cliente.complemento LIKE '%$pesq%' ORDER BY clinica.id ";
 						ECHO $sql;
 					 }
 				 ECHO $rBLL->pesqCliente($sql);	 
