@@ -31,7 +31,6 @@
 			header("Location: index.html");
 		}
 		$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-		
 	?>
 
 	<nav class="navbar navbar-default navbar-static-top" style="background-color:#fff">
@@ -70,7 +69,7 @@
 					<ul class="nav nav-sidebar">
 						<!-- Main menu -->
 						<li class="current"><a href="#" data-url=""><i class="glyphicon glyphicon-home"></i> Opção Home</a></li>
-						<li><a href="#" data-url="formularios/assistentepedido.php"><i class="glyphicon glyphicon-th-list"></i>Pedido</a></li>
+						<li><a href="#" id="pedido"><i class="glyphicon glyphicon-th-list"></i>Pedido</a></li>
 						<li><a href="#" data-url="formularios/assistenteclinica.php"><i class="glyphicon glyphicon-th-list"></i>Clínica</a></li>
 					</ul>
 				</div>
@@ -90,6 +89,33 @@
 	<!-- SCRIPTS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHFQb-U9gOJUlA6jx_25oCqo8IXc-EXD8&language=pt-br&libraries=places"></script>
+	<script src="js/locationpicker.jquery.min.js"></script>
 	<script src="js/custom.js"></script>
+	<script>
+		$(document).ready(function() {
+			idAssistente = <?php echo $_SESSION['user']->fk ?>;
+
+			$("a#pedido").on('click', function(event) {
+				event.preventDefault();
+
+				$.ajax({
+					url: "BLL/checarStatusAssistente.php",
+					data: {idAssistente},
+					success: function(data) {
+
+						if (data) {
+							alert('Pedido em Andamento');
+							$("#conteudo").load('formularios/assistentePedidoAndamento.php');
+						} else {
+							$("#conteudo").load("formularios/assistentepedido.php");
+						}
+					},
+					error: function() {
+					}
+				})
+			})
+		});
+	</script>
 </body>
 </html>
