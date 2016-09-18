@@ -56,15 +56,15 @@
 											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 											<h4 class="modal-title" id="myModalLabel">Você realmente deseja sair da clínica?</h4>
 										  </div>										  
-										  <div class="modal-footer">
-											<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-											<input class="btn btn-info btn-lg" type="submit" value="Deixar Clínica">
+										  <div class="modal-footer">											
+											<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>											
+											<input class="btn btn-info btn-lg" type="submit" name ="submit "value="Desassociar">
 										  </div>
 										</div>
 									  </div>
 									</div>
 		<?php
-					if(isset($_POST['login'])) 
+					if(isset($_POST['submit']))
 					{
 						
 						
@@ -117,14 +117,16 @@
 		$("form#assistenteclinica").on('submit', function() {
 			
 			$login = $('input:text').val();
+			$submit = $('input:submit').val();
 
 			$("#conteudo").load("formularios/assistenteclinica.php",{
 				
 				login: $login
+				submit: $submit
 			});
 
 			return false;
-		})
+		});
 		
 	</script>
 	
