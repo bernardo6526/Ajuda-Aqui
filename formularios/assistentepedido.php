@@ -20,7 +20,7 @@
 					require_once("../DAL/conexao.php");
 					$bd = new banco('ajudaaqui');
 
-					$sql = "SELECT cliente.id, cliente.nome,pedido.local,pedido.data_hora FROM pedido JOIN cliente WHERE cliente_id = cliente.id AND Assistente_id =".$_SESSION['user']->fk;
+					$sql = "SELECT cliente.id, cliente.nome,pedido.local,pedido.data_hora FROM pedido JOIN cliente WHERE cliente_id = cliente.id AND Assistente_id =".$_SESSION['user']->fk." AND pedido.status = 0";
 					$sql .=" ORDER BY cliente.nome LIMIT 10";
 					$result = mysqli_query($bd->conexaobd, $sql);
 

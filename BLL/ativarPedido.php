@@ -6,9 +6,9 @@ $bd = new banco('ajudaaqui');
 $idPedido = $_GET['idPedido'];
 $idAssistente = $_GET['idAssistente'];
 
-$sql = "UPDATE assistente SET status = true WHERE id = $idAssistente";
+$sql = "UPDATE assistente SET status = 1 WHERE id = $idAssistente";
 mysqli_query($bd->conexaobd, $sql);
-$sql = "UPDATE pedido SET status = false WHERE id = $idPedido";
+$sql = "UPDATE pedido SET status = 1 WHERE id = $idPedido";
 mysqli_query($bd->conexaobd, $sql);
 
 echo "ok";

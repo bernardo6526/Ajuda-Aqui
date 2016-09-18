@@ -7,8 +7,9 @@ $assistente = @$_SESSION['user']->fk;
 
 $sql = "SELECT pedido.id, SUBSTRING(pedido.local,1,30) as nome FROM pedido INNER JOIN assistente
 ON assistente.id = pedido.assistente_id
-WHERE pedido.status = 0 AND assistente.id = $assistente";
+WHERE pedido.status = 1 AND assistente.id = $assistente";
 
+var_dump($sql);
 
 $data = mysqli_query($bd->conexaobd, $sql);
 $dados = mysqli_fetch_object($data);
@@ -16,9 +17,11 @@ $dados = mysqli_fetch_object($data);
 $pedidoId = $dados->id;
 $pedido = $dados->nome;
 
-$sql = "SELECT cliente.nome, pedido.local FROM pedido INNER JOIN cliente ON cliente.id = pedido.cliente_id WHERE pedido.status = 0";
+$sql = "SELECT cliente.nome, pedido.local FROM pedido INNER JOIN cliente ON cliente.id = pedido.cliente_id WHERE pedido.id = $pedidoId";
 $data = mysqli_query($bd->conexaobd, $sql);
 $dados = mysqli_fetch_object($data);
+
+var_dump($sql);
 ?>
 
 <div class="col-xs-12">

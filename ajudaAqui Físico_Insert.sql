@@ -66,7 +66,7 @@ CREATE TABLE Pedido(
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   local VARCHAR(225) NOT NULL,
   data_hora DATETIME NOT NULL,
-  status BOOLEAN NOT NULL,
+  status tinyint NOT NULL,
   cliente_id INT UNSIGNED NOT NULL,
   Assistente_id INT UNSIGNED NOT NULL,
   PRIMARY KEY (id),
