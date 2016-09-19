@@ -85,7 +85,7 @@ class relatorioBLL
 	{
 		
 		$this->sql = $sql;
-		print_r($this->sql);
+		
 		$this->result=mysqli_query($this->bd->conexaobd,$this->sql);
 		$this->qtdeLinhas = mysqli_num_rows($this->result);
 		
@@ -121,8 +121,7 @@ class relatorioBLL
 				for($x=0; $x < $this->qtdeLinhas; $x++)
 				{
 					$this->row=mysqli_fetch_assoc($this->result);
-					var_dump($this->row);
-
+					
 					$this->exibicao .= "<tr><td>".$this->row["id"]."</td>";
 					$this->exibicao .= "<td>".$this->row["nome"]."</td>";
 					$this->exibicao .= "<td>".$this->row["nota"]."</td>";

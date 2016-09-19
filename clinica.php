@@ -69,9 +69,10 @@
 				<div class="sidebar content-box" style="display: block;">
 					<ul class="nav nav-sidebar">
 						<!-- Main menu -->
-						<li class="current"><a href="#" data-url=""><i class="glyphicon glyphicon-home"></i> Opção Home</a></li>
-						<li><a href="#" data-url="formularios/form-teste2.html"><i class="glyphicon glyphicon-th-list"></i> Opção Teste 2</a></li>
-						<li><a href="#" data-url="formularios/form-teste.html"><i class="glyphicon glyphicon-th-list"></i> Opção Teste 3</a></li>
+						<li class="current"><a href="#" data-url=""><i class="glyphicon glyphicon-home"></i>Home</a></li>
+						<li><a href="#" data-url="formularios/cadastroAssistenteassoc.html"><i class="glyphicon glyphicon-th-list"></i>Cadastrar Assistentes</a></li>
+						<li><a href="#" data-url="formularios/ListarAssistenteassoc.php"><i class="glyphicon glyphicon-th-list"></i>Editar Assistentes</a></li>
+						
 					</ul>
 				</div>
 			</div>
@@ -86,5 +87,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="js/custom.js"></script>
+	<script src="js/jquery.mask.js"></script>
+	<script src="js/jquery.validate.js"></script>
+	
 </body>
 </html>

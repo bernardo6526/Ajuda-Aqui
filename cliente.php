@@ -81,7 +81,7 @@
 				<div class="sidebar content-box" style="display: block;">
 					<ul class="nav nav-sidebar">
 						<!-- Main menu -->
-						<li class="current"><a href="#" data-url=""><i class="glyphicon glyphicon-home"></i> Opção Home</a></li>
+						<li class="current"><a href="#" data-url=""><i class="glyphicon glyphicon-home"></i>Home</a></li>
 						<li><a href="#" data-url="formularios/pedido.php"><i class="glyphicon glyphicon-th-list"></i> Faça Um Pedido</a></li>
 						<li><a href="#" data-url="formularios/clientedebitos.php"><i class="glyphicon glyphicon-th-list"></i>Débitos</a></li>
 						<li><a href="#" data-url="formularios/clientefeedback.php"><i class="glyphicon glyphicon-th-list"></i>Feedback</a></li>
