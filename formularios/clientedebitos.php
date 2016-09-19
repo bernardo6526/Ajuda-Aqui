@@ -1,3 +1,4 @@
+﻿
 <div class="col-xs-12">
 	
 	<div class="content-box-large box-with-header">
@@ -8,20 +9,27 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Cliente</th>
+						<th>Assistente</th>
 						<th>Local</th>
 						<th>Horário</th>
+						<th>Custo</th>
 						
 					</tr>
 				</thead>
 				<tbody class="">
 					<?php
-					session_start();
-					require_once("../DAL/conexao.php");
+					require_once("/../DAL/conexao.php");
 					$bd = new banco('ajudaaqui');
+					session_start();
 
-					$sql = "SELECT cliente.id, cliente.nome,pedido.local,pedido.data_hora,pedido.id FROM pedido JOIN cliente WHERE cliente_id = cliente.id AND Assistente_id =".$_SESSION['user']->fk." AND pedido.status = 0";
-					$sql .=" ORDER BY cliente.nome LIMIT 10";
+					$cliente = @$_SESSION['user']->fk;
+
+					$sql = "SELECT pedido.id, SUBSTRING(pedido.local,1,30) as local,pedido.data_hora,assistente.nome FROM pedido JOIN cliente JOIN assistente
+					ON cliente.id = pedido.cliente_id AND assistente.id = pedido.assistente_id
+					WHERE pedido.status = 2 AND cliente.id = $cliente";
+
+
+
 					$result = mysqli_query($bd->conexaobd, $sql);
 
 					for ($i=0; $i < mysqli_num_rows($result); $i++) { 
@@ -30,14 +38,15 @@
 						$table = "<tr class='pedido'><td class='id'>$linha->id</td>";
 						$table .= "<td>$linha->nome</td>";
 						$table .= "<td class=''>$linha->local</td>";
-						$table .= "<td class=''>$linha->data_hora</td></tr>";
+						$table .= "<td class=''>$linha->data_hora</td>";
+						$table .= "<td class=''>R$20</td></tr>";
 
-						echo $table;
+						echo utf8_encode($table);
 					}
 					?>
 				</tbody>
 			</table>
-			<input type="submit" class="form-control btn btn-info col-xs-12" value="Ativar">
+			<input type="submit" class="form-control btn btn-info col-xs-12" value="Pagar">
 			
 			<p class="text-right">Ajuda Aqui!</p>
 		</form>
@@ -45,17 +54,17 @@
 	</div>
 </div>
 <script>
-	$(document).ready(function($) {
+$(document).ready(function($) {
 		$("tr.pedido").on('click', function(event) {
 			event.preventDefault();
 			$idPedido = $("td.id", this).text();
 			
-			$idAssistente = <?php echo $_SESSION['user']->fk; ?>;
+			$idCliente = <?php echo $_SESSION['user']->fk; ?>;
 
 			if ($(this).hasClass('active')) {
 				$(this).removeClass('active');
 				delete $idPedido;
-				delete $idAssistente;
+				delete $idCliente;
 			} else {
 				$('tr.active').removeClass('active');
 				$(this).addClass('active');
@@ -64,17 +73,18 @@
 		$('form').on('submit', function(event) {
 			event.preventDefault();
 			$.get({
-				url: "BLL/ativarPedido.php",
+				url: "BLL/pagamento.php",
 				data: {
 					idPedido: $idPedido,
-					idAssistente: $idAssistente
+					idCliente: $idCliente
 				},
 				success: function() {
-					alert('Pedido aceito com sucesso!');
-					window.location.replace("assistente.php");
+					alert('Pagamento efetuado com sucesso!');
+					window.location.replace("cliente.php");
 				}
 			})
 		});
 	});
 
+  
 </script>

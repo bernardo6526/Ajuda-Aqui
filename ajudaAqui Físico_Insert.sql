@@ -183,14 +183,6 @@ VALUES(NULL, 'Mariana Ferreira', 23970058729, 'mari_gatinha22@gmail.com', '2000-
 INSERT INTO Cliente(id, nome, cpf, email, nascimento, rg, telefone, tipo_deficiencia, cidade, Bairro, Logradouro, complemento, numero, uf, cep)
 VALUES(NULL, 'Marcello Lessa', 55347612944, 'MLessaAB@gmail.com', '1985-01-29', 83463680, 990012468, 'Deficiente Visual', 'Belo Horizonte', 'Ipanema', 'Rua Poranga', 'VAZIO', 108, 'MG', 38190011);
 
-INSERT INTO Pedido(id, local, data_hora,status, cliente_id, Assistente_id)
-VALUES(NULL, 'Avenida do Contorno', '2016-06-25 19:38:00',false,1,1);
-INSERT INTO Pedido(id, local, data_hora,status,cliente_id, Assistente_id)
-VALUES(NULL, 'Rua Portugal', '2016-05-30 14:54:00',false,2,2);
-INSERT INTO Pedido(id, local, data_hora,status,cliente_id, Assistente_id)
-VALUES(NULL, 'Rua Dido', '2016-05-25 10:34:00',false,3,3);
-INSERT INTO Pedido(id, local, data_hora,status,cliente_id, Assistente_id)
-VALUES(NULL, 'Avenida Engenheiros', '2016-03-12 08:16:00',false,4,4);
 
 INSERT INTO Feedback_cliente(cliente_id, nota)
 VALUES(1,8.5);
@@ -218,7 +210,13 @@ INSERT INTO Tipo_Usuario(id,nome)
 VALUES(3,'Cliente');
 
 INSERT INTO Usuario(id, login, senha,tipo,fk) VALUES (null, 'clinica', '123',1,1);
+INSERT INTO Usuario(id, login, senha,tipo,fk) VALUES (null, 'clinica2', '123',1,2);
 INSERT INTO Usuario(id, login, senha,tipo,fk) VALUES (null, 'assistente', '123',2,1);
 INSERT INTO Usuario(id, login, senha,tipo,fk) VALUES (null, 'cliente', '123',3,1);
 
-
+-- status de pedido :
+-- 0 = criado
+-- 1 = aceito
+-- 2 = finalizado
+-- 3 = pagamento realizado
+-- 4 = feedback realizado

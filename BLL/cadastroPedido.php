@@ -4,7 +4,7 @@ session_start();
 require_once("/../DAL/conexao.php");
 $bd = new banco('ajudaaqui');
 
-$id = $_SESSION['user']->id;
+$id = $_SESSION['user']->fk;
 $local = $_POST['local'];
 $assistente = $_POST['assistente'];
 

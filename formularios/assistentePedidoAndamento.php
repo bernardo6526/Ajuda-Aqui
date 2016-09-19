@@ -12,16 +12,25 @@ WHERE pedido.status = 1 AND assistente.id = $assistente";
 var_dump($sql);
 
 $data = mysqli_query($bd->conexaobd, $sql);
+if(mysqli_num_rows($data) > 1)
+{
+	$sql = "SELECT pedido.id, SUBSTRING(pedido.local,1,30) as nome FROM pedido INNER JOIN assistente
+ON assistente.id = pedido.assistente_id
+WHERE pedido.status = 1 AND assistente.id = $assistente ORDER BY pedido.id DESC";
+}
+$data = mysqli_query($bd->conexaobd, $sql);
 $dados = mysqli_fetch_object($data);
 
 $pedidoId = $dados->id;
 $pedido = $dados->nome;
 
-$sql = "SELECT cliente.nome, pedido.local FROM pedido INNER JOIN cliente ON cliente.id = pedido.cliente_id WHERE pedido.id = $pedidoId";
+$sql = "SELECT cliente.nome,cliente.id, pedido.local FROM pedido INNER JOIN cliente ON cliente.id = pedido.cliente_id WHERE pedido.id = $pedidoId";
 $data = mysqli_query($bd->conexaobd, $sql);
 $dados = mysqli_fetch_object($data);
 
-var_dump($sql);
+
+
+//var_dump($sql);
 ?>
 
 <div class="col-xs-12">

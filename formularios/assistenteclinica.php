@@ -43,12 +43,12 @@
 							$table .= "<td class=''>$linha->complemento</td></tr></tbody></table>";
 							ECHO utf8_encode($table);
 		?>
-																<!-- Button trigger modal -->
+								<!--								 Button trigger modal 
 									<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
 									  Sair
 									</button>
 
-									<!-- Modal -->
+									 Modal 
 									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 									  <div class="modal-dialog" role="document">
 										<div class="modal-content">
@@ -62,17 +62,17 @@
 										  </div>
 										</div>
 									  </div>
-									</div>
+									</div> -->
 		<?php
-					if(isset($_POST['submit']))
-					{
+					// if(isset($_POST['submit']))
+					// {
 						
 						
 						
-						$sql = "UPDATE assistente SET clinica_id = 1 WHERE assistente.id=".$_SESSION["user"]->fk;
-						$result = mysqli_query($bd->conexaobd, $sql);
-						ECHO "<script>alert('Desassociação realizada!');</script>";
-					}	
+						// $sql = "UPDATE assistente SET clinica_id = 1 WHERE assistente.id=".$_SESSION["user"]->fk;
+						// $result = mysqli_query($bd->conexaobd, $sql);
+						// ECHO "<script>alert('Desassociação realizada!');</script>";
+					// }	
 			}
 			
 			
@@ -103,6 +103,7 @@
 						$sql = "UPDATE assistente SET clinica_id =".$row["fk"]." WHERE assistente.id=".$_SESSION["user"]->fk;
 						$result = mysqli_query($bd->conexaobd, $sql);
 						ECHO "<script>alert('Associação efetuada com sucesso!');</script>";
+						header("Location: assistente.php");
 					}
 				} 
 			?>
@@ -117,15 +118,17 @@
 		$("form#assistenteclinica").on('submit', function() {
 			
 			$login = $('input:text').val();
-			$submit = $('input:submit').val();
+			// $submit = $('input:submit').val();
 
 			$("#conteudo").load("formularios/assistenteclinica.php",{
 				
 				login: $login
-				submit: $submit
+			//	submit: $submit
 			});
 
 			return false;
+			
+			
 		});
 		
 	</script>
