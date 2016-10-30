@@ -77,7 +77,7 @@ $dados = mysqli_fetch_assoc($result);
 			ev.preventDefault;
 
 			$.getJSON({
-				url: "BLL/alterarCliente.php",
+				url: "BLL/alterarClinica.php",
 				data: $('form').serializeArray(),
 				success: function(data) {
 					alert("Alterado com Sucesso!");
