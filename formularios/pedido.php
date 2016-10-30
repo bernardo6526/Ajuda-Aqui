@@ -83,6 +83,28 @@
 <script src="js/locationpicker.jquery.min.js"></script>
 <script>
 
+var lat, lon;
+
+	navigator.geolocation.getCurrentPosition(function(location) {
+ 		var lat = (location.coords.latitude);
+ 		var lon = (location.coords.longitude);
+
+ 		$('#us6').locationpicker({
+
+			location: {latitude: lat, longitude: lon},
+			radius: 0,
+			inputBinding: {
+				locationNameInput: $('#us6-address')
+			},
+			enableAutocomplete: true
+		});
+		$('#us6-dialog').on('shown.bs.modal', function () {
+			$('#us6').locationpicker('autosize');
+		});
+	});
+
+	
+
 	$(document).ready(function() {
 
 		$("td.telefone").mask("(00)0000-00000");
@@ -121,19 +143,6 @@
 				}
 			})
 			return false;
-		});
-
-		$('#us6').locationpicker({
-
-			location: {latitude: -19.936421167519764, longitude: -43.96634747238727},
-			radius: 0,
-			inputBinding: {
-				locationNameInput: $('#us6-address')
-			},
-			enableAutocomplete: true
-		});
-		$('#us6-dialog').on('shown.bs.modal', function () {
-			$('#us6').locationpicker('autosize');
 		});
 	});
 </script>

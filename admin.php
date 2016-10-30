@@ -53,7 +53,6 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Admin DEV <b class="caret"></b></a>
               <ul class="dropdown-menu animated fadeInUp">
-                <li><a href="#" id="editar" data-url=""><span class="glyphicon glyphicon-pencil"></span> Perfil</a></li>
                 <li><a href="#" id="sair"><span class="glyphicon glyphicon-off"></span> Sair</a></li>
               </ul>
             </li>

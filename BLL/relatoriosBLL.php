@@ -34,7 +34,7 @@ class relatorioBLL
 		$this->qtdeLinhas = mysqli_num_rows($this->result);
 		
 		
-		$this->exibicao =	"<div class='container'>
+		$this->exibicao =	"<div class='container' id='tabela'>
 		<h2>Clínica</h2>
 		
 		<table class='table table-hover'>
@@ -44,14 +44,8 @@ class relatorioBLL
 					<th>Nome</th>
 					<th>Nota</th>
 					<th>Telefone</th>
-					<th>CNPJ</th>
 					<th>UF</th>
 					<th>Cidade</th>
-					<th>CEP</th>
-					<th>Bairro</th>
-					<th>Logradouro</th>
-					<th>Número</th>
-					<th>Complemento</th>
 				</tr>
 			</thead>
 			<tbody>";
@@ -63,20 +57,15 @@ class relatorioBLL
 					$this->exibicao .= "<td>".$this->row["nome"]."</td>";
 					$this->exibicao .= "<td>".$this->row["nota"]."</td>";
 					$this->exibicao .= "<td>".$this->row["telefone"]."</td>";
-					$this->exibicao .= "<td>".$this->row["cnpj"]."</td>";
 					$this->exibicao .= "<td>".$this->row["uf"]."</td>";
 					$this->exibicao .= "<td>".$this->row["cidade"]."</td>";
-					$this->exibicao .= "<td>".$this->row["cep"]."</td>";
-					$this->exibicao .= "<td>".$this->row["bairro"]."</td>";
-					$this->exibicao .= "<td>".$this->row["logradouro"]."</td>";
-					$this->exibicao .= "<td>".$this->row["numero"]."</td>";
-					$this->exibicao .= "<td>".$this->row["complemento"]."</td></tr>";
 					
 				}
 				
 				$this->exibicao .= "</tbody>
 			</table>
-		</div>";
+		</div>
+		<input type='button' value='Imprimir' class='btn btn-default' onclick=window.print()>";
 		return utf8_encode($this->exibicao);
 		
 		
@@ -90,7 +79,7 @@ class relatorioBLL
 		$this->qtdeLinhas = mysqli_num_rows($this->result);
 		
 		
-		$this->exibicao =	"<div class='container'>
+		$this->exibicao =	"<div class='container' id='tabela'>
 		<h2>Assistente</h2>
 		
 		<table class='table table-hover'>
@@ -101,19 +90,8 @@ class relatorioBLL
 					<th>Nota</th>
 					<th>Telefone</th>
 					<th>Email</th>
-					<th>Nascimento</th>
-					<th>Tipo</th>
 					<th>Certificado</th>
 					<th>Clinica</th>
-					<th>CPF</th>
-					<th>RG</th>
-					<th>UF</th>
-					<th>Cidade</th>
-					<th>CEP</th>
-					<th>Bairro</th>
-					<th>Logradouro</th>
-					<th>Numero</th>
-					<th>Complemento</th>
 				</tr>
 			</thead>
 			<tbody>";
@@ -127,25 +105,14 @@ class relatorioBLL
 					$this->exibicao .= "<td>".$this->row["nota"]."</td>";
 					$this->exibicao .= "<td>".$this->row["telefone"]."</td>";
 					$this->exibicao .= "<td>".$this->row["email"]."</td>";
-					$this->exibicao .= "<td>".$this->row["nascimento"]."</td>";
-					$this->exibicao .= "<td>".$this->row["tipo"]."</td>";
 					$this->exibicao .= "<td>".$this->row["certificado"]."</td>";
-					$this->exibicao .= "<td>".$this->row['nomeClinica']."</td>";
-					$this->exibicao .= "<td>".$this->row["cpf"]."</td>";
-					$this->exibicao .= "<td>".$this->row["rg"]."</td>";
-					$this->exibicao .= "<td>".$this->row["uf"]."</td>";
-					$this->exibicao .= "<td>".$this->row["cidade"]."</td>";
-					$this->exibicao .= "<td>".$this->row["cep"]."</td>";
-					$this->exibicao .= "<td>".$this->row["bairro"]."</td>";
-					$this->exibicao .= "<td>".$this->row["logradouro"]."</td>";
-					$this->exibicao .= "<td>".$this->row["numero"]."</td>";
-					$this->exibicao .= "<td>".$this->row["complemento"]."</td></tr>";
-					
+					$this->exibicao .= "<td>".$this->row["nomeClinica"]."</td>";
 				}
 				
 				$this->exibicao .= "</tbody>
 			</table>
-		</div>";
+		</div>
+		<input type='button' value='Imprimir' class='btn btn-default' onclick=window.print()>";
 		return utf8_encode($this->exibicao);
 		
 		
@@ -158,7 +125,7 @@ class relatorioBLL
 		$this->qtdeLinhas = mysqli_num_rows($this->result);
 		
 		
-		$this->exibicao =	"<div class='container'>
+		$this->exibicao =	"<div class='container' id='tabela'>
 		<h2>Cliente</h2>
 		
 		<table class='table table-hover'>
@@ -168,17 +135,8 @@ class relatorioBLL
 					<th>Nome</th>			
 					<th>Telefone</th>
 					<th>Email</th>
-					<th>Nascimento</th>
-					<th>Tipo</th>
 					<th>CPF</th>
-					<th>RG</th>
-					<th>UF</th>
-					<th>Cidade</th>
 					<th>CEP</th>
-					<th>Bairro</th>
-					<th>Logradouro</th>
-					<th>Número</th>
-					<th>Complemento</th>
 				</tr>
 			</thead>
 			<tbody>";
@@ -190,22 +148,14 @@ class relatorioBLL
 					$this->exibicao .= "<td>".$this->row["nome"]."</td>";
 					$this->exibicao .= "<td>".$this->row["telefone"]."</td>";
 					$this->exibicao .= "<td>".$this->row["email"]."</td>";
-					$this->exibicao .= "<td>".$this->row["nascimento"]."</td>";
-					$this->exibicao .= "<td>".$this->row["tipo_deficiencia"]."</td>";
 					$this->exibicao .= "<td>".$this->row["cpf"]."</td>";
-					$this->exibicao .= "<td>".$this->row["rg"]."</td>";
-					$this->exibicao .= "<td>".$this->row["uf"]."</td>";
-					$this->exibicao .= "<td>".$this->row["cidade"]."</td>";
 					$this->exibicao .= "<td>".$this->row["cep"]."</td>";
-					$this->exibicao .= "<td>".$this->row["bairro"]."</td>";
-					$this->exibicao .= "<td>".$this->row["logradouro"]."</td>";
-					$this->exibicao .= "<td>".$this->row["numero"]."</td>";
-					$this->exibicao .= "<td>".$this->row["complemento"]."</td></tr>";
 				}
 				
 				$this->exibicao .= "</tbody>
 			</table>
-		</div>";
+		</div>
+		<input type='button' value='Imprimir' class='btn btn-default' onclick=window.print()>";
 		return utf8_encode($this->exibicao);
 		
 		
@@ -219,7 +169,7 @@ class relatorioBLL
 		$this->qtdeLinhas = mysqli_num_rows($this->result);
 		
 		
-		$this->exibicao =	"<div class='container'>
+		$this->exibicao =	"<div class='container' id='tabela'>
 		<h2>Pedido</h2>
 		
 		<table class='table table-hover'>
@@ -257,7 +207,8 @@ class relatorioBLL
 				
 				$this->exibicao .= "</tbody>
 			</table>
-		</div>";
+		</div>
+		<input type='button' value='Imprimir' class='btn btn-default' onclick=window.print()>";
 		return utf8_encode($this->exibicao);
 		
 		

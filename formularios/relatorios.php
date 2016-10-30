@@ -3,7 +3,7 @@
 		<h1>Relatórios do Sistema</h1>
 
 	</div>  
-	<div class="container ">  
+	<div class="container" id="impresso">  
 		<form action="" id="relatorios" method="post">
 			
 
@@ -23,6 +23,7 @@
 					<label class="radio-inline">
 						<input type="radio" name="tabela" id="tabela" value="Pedido" >Pedido	
 					</label>
+					<br><br>
 
 
 					
@@ -51,7 +52,29 @@
 			});
 
 			return false;
-		})
+		});
+
+		function PrintElem(elem)
+    {
+        Popup($(elem).html());
+    }
+
+    function Popup(data) 
+    {
+        var mywindow = window.open();
+        mywindow.document.write('<html><head><title>Imprimir Relatórios</title>');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write(data);
+        mywindow.document.write('</body></html>');
+
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10
+
+        mywindow.print();
+        mywindow.close();
+
+        return true;
+    }
 	</script>
 	
 
@@ -93,7 +116,7 @@
 			else {
 				$sql = "SELECT clinica.id,clinica.nome,clinica.nota,clinica.telefone,clinica.cnpj,clinica.uf,clinica.cidade,clinica.cep,clinica.bairro,clinica.logradouro,clinica.numero,clinica.complemento FROM clinica  ";
 				$sql .= "WHERE clinica.id LIKE '%$pesq%' OR clinica.nome LIKE '%$pesq%' OR clinica.nota = '$pesq' OR clinica.telefone = '$pesq' OR clinica.cnpj LIKE '%$pesq%' OR clinica.uf LIKE '%$pesq%' OR clinica.cidade LIKE '%$pesq%'";
-				$sql .= "OR clinica.cep LIKE '%$pesq%' OR clinica.bairro LIKE '%$pesq%' OR clinica.logradouro = '$pesq' OR clinica.numero = '$pesq' OR clinica.complemento LIKE '%$pesq%' ORDER BY clinica.id";
+				$sql .= "OR clinica.cep LIKE '%$pesq%' OR clinica.bairro LIKE '%$pesq%' OR clinica.logradouro = '$pesq' OR clinica.numero = '$pesq' OR clinica.complemento LIKE '%$pesq%' AND clinica.id != 1 ORDER BY clinica.id";
 
 			}
 
