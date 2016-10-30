@@ -9,7 +9,6 @@ $sql = "SELECT pedido.id, SUBSTRING(pedido.local,1,30) as nome FROM pedido INNER
 ON assistente.id = pedido.assistente_id
 WHERE pedido.status = 1 AND assistente.id = $assistente";
 
-var_dump($sql);
 
 $data = mysqli_query($bd->conexaobd, $sql);
 if(mysqli_num_rows($data) > 1)
@@ -30,7 +29,6 @@ $dados = mysqli_fetch_object($data);
 
 
 
-//var_dump($sql);
 ?>
 
 <div class="col-xs-12">
