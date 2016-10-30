@@ -104,6 +104,10 @@ class clinicaBLL
 		
 			$this->result=mysqli_query($this->bd->conexaobd,$this->sql);
 			
+			$this->sql = "DELETE FROM usuario WHERE usuario.fk=".$this->id." AND usuario.tipo=2";
+		
+			$this->result=mysqli_query($this->bd->conexaobd,$this->sql);
+			
 			
 		}
 	
