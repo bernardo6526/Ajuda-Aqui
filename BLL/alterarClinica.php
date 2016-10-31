@@ -17,9 +17,11 @@ $uf = $_GET['uf'];
 $cep = $_GET['cep'];
 $nota = $_GET['nota'];
 
-$sql = "UPDATE cliente SET nome = '$nome', cnpj = '$cnpj', telefone = '$telefone',
+$sql = "UPDATE clinica SET nome = '$nome', cnpj = '$cnpj', telefone = '$telefone',
 				cidade = '$cidade', Bairro = '$bairro', Logradouro = '$logradouro', complemento = '$complemento',
 				numero = $numero, uf = '$uf', cep = $cep, nota = $nota WHERE id = $id";
+
+				print_r($sql);
 
 if (mysqli_query($bd->conexaobd, $sql)) {
 	echo json_encode("ok");
