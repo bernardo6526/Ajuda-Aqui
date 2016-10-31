@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `assistente` (
   `certificado` varchar(45) NOT NULL,
   `tipo` varchar(45) NOT NULL,
   `Clinica_id` int(10) unsigned DEFAULT NULL,
-  `nota` int(11) DEFAULT NULL,
+  `nota` int(11) DEFAULT '6',
   `status` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `Clinica_id` (`Clinica_id`)
