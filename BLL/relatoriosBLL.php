@@ -213,6 +213,106 @@ class relatorioBLL
 		
 		
 	}
+	
+			public function pesqAssistentePedido($sql)
+	{
+		
+		$this->sql = $sql;
+		$this->result=mysqli_query($this->bd->conexaobd,$this->sql);
+		$this->qtdeLinhas = mysqli_num_rows($this->result);
+		
+		
+		$this->exibicao =	"<div class='container' id='tabela'>
+		<h2>Pedido</h2>
+		
+		<table class='table table-hover'>
+			<thead>
+				<tr>
+					
+					<th>Nome Cliente</th>
+					<th>Local</th>
+					<th>Data e Hora</th>
+					<th>Status</th>
+					<th>Valor Bruto</th>
+					<th>Valor Líquido</th>
+					<th>Taxa</th>
+
+				</tr>
+			</thead>
+			<tbody>";
+
+				for($x=0; $x < $this->qtdeLinhas; $x++)
+				{
+					$this->row=mysqli_fetch_assoc($this->result);
+					$this->exibicao .= "<td>".$this->row['nome']."</td>";
+					$this->exibicao .= "<td>".$this->row["local"]."</td>";
+					$this->exibicao .= "<td>".$this->row["data_hora"]."</td>";
+					$this->exibicao .= "<td>".$this->pedidostatus($this->row["status"])."</td>";
+					$this->exibicao .= "<td>".$this->fk_pagamento("pagamento","valor_bruto",$this->row["id"])."</td>";
+					$this->exibicao .= "<td>".$this->fk_pagamento("pagamento","valor_liquido",$this->row["id"])."</td>";
+					$this->exibicao .= "<td>".$this->fk_pagamento("pagamento","imposto",$this->row["id"])."</td></tr>";
+
+					
+				}
+				
+				$this->exibicao .= "</tbody>
+			</table>
+		</div>
+		<input type='button' value='Imprimir' class='btn btn-default' onclick=window.print()>";
+		return utf8_encode($this->exibicao);
+		
+		
+	}
+	
+	public function pesqClientePedido($sql)
+	{
+		
+		$this->sql = $sql;
+		$this->result=mysqli_query($this->bd->conexaobd,$this->sql);
+		$this->qtdeLinhas = mysqli_num_rows($this->result);
+		
+		
+		$this->exibicao =	"<div class='container' id='tabela'>
+		<h2>Pedido</h2>
+		
+		<table class='table table-hover'>
+			<thead>
+				<tr>
+					
+					<th>Nome Assistente</th>
+					<th>Local</th>
+					<th>Data e Hora</th>
+					<th>Status</th>
+					<th>Valor Bruto</th>
+					<th>Valor Líquido</th>
+					<th>Taxa</th>
+
+				</tr>
+			</thead>
+			<tbody>";
+
+				for($x=0; $x < $this->qtdeLinhas; $x++)
+				{
+					$this->row=mysqli_fetch_assoc($this->result);
+					$this->exibicao .= "<td>".$this->row['nome']."</td>";
+					$this->exibicao .= "<td>".$this->row["local"]."</td>";
+					$this->exibicao .= "<td>".$this->row["data_hora"]."</td>";
+					$this->exibicao .= "<td>".$this->pedidostatus($this->row["status"])."</td>";
+					$this->exibicao .= "<td>".$this->fk_pagamento("pagamento","valor_bruto",$this->row["id"])."</td>";
+					$this->exibicao .= "<td>".$this->fk_pagamento("pagamento","valor_liquido",$this->row["id"])."</td>";
+					$this->exibicao .= "<td>".$this->fk_pagamento("pagamento","imposto",$this->row["id"])."</td></tr>";
+
+					
+				}
+				
+				$this->exibicao .= "</tbody>
+			</table>
+		</div>
+		<input type='button' value='Imprimir' class='btn btn-default' onclick=window.print()>";
+		return utf8_encode($this->exibicao);
+		
+		
+	}
 					
 		// Trabalho Desnecessauro Abaixo
 
