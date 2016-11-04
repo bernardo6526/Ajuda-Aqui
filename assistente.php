@@ -70,6 +70,7 @@
 						<!-- Main menu -->
 						<li class="current"><a href="#" data-url=""><i class="glyphicon glyphicon-home"></i>Home</a></li>
 						<li><a href="#" id="pedido"><i class="glyphicon glyphicon-th-list"></i>Pedido</a></li>
+						<li><a href="#" data-url="formularios/relatoriosAssistente.php"><i class="glyphicon glyphicon-th-list"></i>Histórico de Assistências</a></li>
 						<li><a href="#" data-url="formularios/assistenteclinica.php"><i class="glyphicon glyphicon-th-list"></i>Clínica</a></li>
 					</ul>
 				</div>
