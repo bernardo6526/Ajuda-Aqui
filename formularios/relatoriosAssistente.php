@@ -91,9 +91,10 @@
 
 			}
 			else {
+				
 				$sql= "SELECT pedido.id,cliente.nome,pedido.local,pedido.data_hora,pedido.status FROM pedido JOIN cliente WHERE pedido.cliente_id = cliente.id AND assistente_id =".$_SESSION['user']->fk." AND(";
-				$sql+= "pedido.local LIKE '%".$pesq."%' OR pedido.data_hora LIKE '%".$pesq."%' OR pedido.status = ".$pesq;
-				var_dump($sql);
+				$sql.= "cliente.nome LIKE '%".$pesq."%' OR pedido.local LIKE  '%".$pesq."%' OR pedido.data_hora LIKE '%".$pesq."%' OR pedido.status = '".$pesq."' )";
+				
 				
 
 			}

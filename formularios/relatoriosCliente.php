@@ -12,7 +12,7 @@
 										
 					<div id="custom-search-input form-group">
 						<div class="input-group col-md-12">
-							<input type="text" class="form-control input-lg" placeholder="Buscar"/>
+							<input type="text" name="pesq" class="form-control input-lg" placeholder="Buscar"/>
 							<span class="input-group-btn">
 								<input class="btn btn-info btn-lg" type="submit" style="background-color: #1985a1;" value="Ir">						
 							</span>
@@ -91,9 +91,9 @@
 
 			}
 			else {
-				$sql= "SELECT pedido.id,assistente.nome,pedido.local,pedido.data_hora,pedido.status FROM pedido JOIN assistente WHERE pedido.assistente_id = assistente.id AND cliente_id =".$_SESSION['user']->fk."1 AND(";
-				$sql+= "pedido.local LIKE '%".$pesq."%' OR pedido.data_hora LIKE '%".$pesq."%' OR pedido.status = ".$pesq;
-				var_dump($sql);
+				$sql= "SELECT pedido.id,assistente.nome,pedido.local,pedido.data_hora,pedido.status FROM pedido JOIN assistente ON pedido.assistente_id = assistente.id AND cliente_id =".$_SESSION['user']->fk." WHERE(";
+				$sql.= "assistente.nome LIKE '%".$pesq."%' OR pedido.local LIKE '%".$pesq."%' OR pedido.data_hora LIKE '%".$pesq."%' OR pedido.status = '".$pesq."' )";
+				
 				
 
 			}
