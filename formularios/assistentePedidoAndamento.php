@@ -27,7 +27,15 @@ $sql = "SELECT cliente.nome,cliente.id, pedido.local FROM pedido INNER JOIN clie
 $data = mysqli_query($bd->conexaobd, $sql);
 $dados = mysqli_fetch_object($data);
 
+$sql = "SELECT data_hora as data FROM pedido WHERE id = $pedidoId";
+$data = mysqli_query($bd->conexaobd, $sql);
+$dados2 = mysqli_fetch_object($data);
+$diaPedido = date_create($dados2->data);
+$diaAtual = date_create(date("Y-m-d H:i:s"));
 
+$dataHora = date_diff($diaPedido, $diaAtual);
+
+$valor = $dataHora->h > 1? $dataHora->h*5:7;
 
 ?>
 
@@ -50,6 +58,25 @@ $dados = mysqli_fetch_object($data);
 	<button class="btn btn-info col-xs-12" id="completar">Completar Pedido</button>
 	<p class="text-right">Ajuda Aqui!</p>
 	</div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Pagamento</h4>
+      </div>
+      <div class="modal-body">
+        <h3 class="text-center">Valor Total do Pedido</h3>
+				<h1 class="lead text-center">R$: <?= $valor ?>,00 </h1>
+      </div>
+      <div class="modal-footer">
+      	<button class="btn btn-info col-xs-12" id="completarPedido">Completar Pedido</button>
+      </div>
+    </div>
+    
+  </div>
 </div>
 <script>
 $(document).ready(function() {	
@@ -82,8 +109,13 @@ $(document).ready(function() {
 		enableAutocomplete: true,
   });
 
-  $("#completar").on('click', function(event) {
+
+	$("#completar").on('click', function(ev) {
+		$("#myModal").modal("show");
+	});
+  $("#completarPedido").on('click', function(event) {
   	event.preventDefault();
+
   	$.get({
   		url: "BLL/desativarPedido.php",
   		data: {
@@ -93,7 +125,7 @@ $(document).ready(function() {
   		success: function() {
   			window.location.replace('assistente.php');
   		}
-  	})
+  	});
   });
 });
 </script>
