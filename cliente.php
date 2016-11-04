@@ -83,6 +83,7 @@
 						<!-- Main menu -->
 						<li class="current"><a href="#" data-url=""><i class="glyphicon glyphicon-home"></i>Home</a></li>
 						<li><a href="#" data-url="formularios/pedido.php"><i class="glyphicon glyphicon-th-list"></i> Faça Um Pedido</a></li>
+						<li><a href="#" data-url="formularios/relatoriosCliente.php"><i class="glyphicon glyphicon-th-list"></i>Histórico de Pedidos</a></li>
 						<li><a href="#" data-url="formularios/clientedebitos.php"><i class="glyphicon glyphicon-th-list"></i>Débitos</a></li>
 						<li><a href="#" data-url="formularios/clientefeedback.php"><i class="glyphicon glyphicon-th-list"></i>Feedback</a></li>
 					</ul>
