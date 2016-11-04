@@ -12,7 +12,7 @@
 										
 					<div id="custom-search-input form-group">
 						<div class="input-group col-md-12">
-							<input type="text" class="form-control input-lg" placeholder="Buscar"/>
+							<input type="text" name="pesq" class="form-control input-lg" placeholder="Buscar"/>
 							<span class="input-group-btn">
 								<input class="btn btn-info btn-lg" type="submit" style="background-color: #1985a1;" value="Ir">						
 							</span>
