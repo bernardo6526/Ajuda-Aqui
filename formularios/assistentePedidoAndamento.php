@@ -120,7 +120,8 @@ $(document).ready(function() {
   		url: "BLL/desativarPedido.php",
   		data: {
   			idPedido: "<?php echo $pedidoId ?>",
-  			idAssistente: "<?php echo $assistente ?>"
+  			idAssistente: "<?php echo $assistente ?>",
+  			valorPedido: "<?= $valor ?>"
   		},
   		success: function() {
   			window.location.replace('assistente.php');
